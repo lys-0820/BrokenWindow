@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Geranium_0: -3656230578815113004
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

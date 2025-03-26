@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pothos_0: 2176743008609033057
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

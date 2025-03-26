@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Rhipsalis_0: -9095816579524923964
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

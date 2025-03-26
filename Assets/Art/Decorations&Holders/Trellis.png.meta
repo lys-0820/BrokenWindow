@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Trellis_0: -2259708759468734298
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

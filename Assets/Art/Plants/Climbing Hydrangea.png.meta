@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Climbing Hydrangea_0: -6154702601891098727
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
