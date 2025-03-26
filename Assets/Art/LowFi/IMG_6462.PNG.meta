@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 6afc35deab4e7394793463bcd8220aad
+guid: 3e7dd260e8621b94bbdc82545e005791
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5514165388930042706
-    second: Hanging Plant 1_0
+      213: -2148705541791478571
+    second: IMG_6462_0
+  - first:
+      213: 3599309715014922298
+    second: IMG_6462_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hanging Plant 1_0
+      name: IMG_6462_0
       rect:
         serializedVersion: 2
-        x: 662
-        y: 89
-        width: 2853
-        height: 4007
+        x: 374
+        y: 935
+        width: 1272
+        height: 145
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 25bcde7b430468c40800000000000000
-      internalID: 5514165388930042706
+      spriteID: 5dc0b9ea1b34e22e0800000000000000
+      internalID: -2148705541791478571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_6462_1
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 0
+        width: 1439
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a30b318ad1153f130800000000000000
+      internalID: 3599309715014922298
       vertices: []
       indices: 
       edges: []
@@ -147,8 +172,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Hanging Plant 1_0: 5514165388930042706
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

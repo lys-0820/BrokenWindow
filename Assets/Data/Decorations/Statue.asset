@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6256c50d8daacdb479bc1273d1aa1676, type: 3}
+  m_Name: Statue
+  m_EditorClassIdentifier: 
+  name: Statue
+  description: Who is it??
+  image: {fileID: 6804807191054158518, guid: 99bc53d9d4132494ebc54ace487af6d1, type: 3}

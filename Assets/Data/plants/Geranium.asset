@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 162124d9111f29545b6737340604fbba, type: 3}
+  m_Name: Geranium
+  m_EditorClassIdentifier: 
+  plantName: Geranium
+  description: Bright, cheerful, and always in the mood to bloom.
+  image: {fileID: -3656230578815113004, guid: 9b8c9e63af4eb0f469969b5882ceab66, type: 3}
+  plantType: 0

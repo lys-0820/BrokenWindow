@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 162124d9111f29545b6737340604fbba, type: 3}
+  m_Name: Cactus
+  m_EditorClassIdentifier: 
+  plantName: Cactus
+  description: Tough, spiky, and totally chill with being ignored.
+  image: {fileID: 7679083508794041174, guid: e1a3b488f2ec4854baf6266d74377819, type: 3}
+  plantType: 0

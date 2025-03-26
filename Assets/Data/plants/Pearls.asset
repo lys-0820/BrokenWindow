@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 162124d9111f29545b6737340604fbba, type: 3}
+  m_Name: Pearls
+  m_EditorClassIdentifier: 
+  plantName: String of Pearls
+  description: A stylish trail of tiny green jewels.
+  image: {fileID: -5508528034942918875, guid: 33317776961aabf4e8c259b7d45bb84c, type: 3}
+  plantType: 1
