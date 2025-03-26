@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162124d9111f29545b6737340604fbba, type: 3}
   m_Name: SpiderPlant
   m_EditorClassIdentifier: 
-  plantName: Spider Plant
+  name: Spider Plant
   description: Bouncy and full of life, always ready to grow more friends.
   image: {fileID: 2546458511190288876, guid: 60dba8c5a9a89674daa88d6e192498f9, type: 3}
   plantType: 0

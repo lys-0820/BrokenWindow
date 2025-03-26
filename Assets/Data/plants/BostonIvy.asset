@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162124d9111f29545b6737340604fbba, type: 3}
   m_Name: BostonIvy
   m_EditorClassIdentifier: 
-  plantName: Boston Ivy
+  name: Boston Ivy
   description: A quiet climber that loves to cover walls with charm.
   image: {fileID: -6590875200065019990, guid: 4d990c9cddac21c41b51873623e66353, type: 3}
   plantType: 2

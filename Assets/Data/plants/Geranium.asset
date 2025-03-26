@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162124d9111f29545b6737340604fbba, type: 3}
   m_Name: Geranium
   m_EditorClassIdentifier: 
-  plantName: Geranium
+  name: Geranium
   description: Bright, cheerful, and always in the mood to bloom.
   image: {fileID: -3656230578815113004, guid: 9b8c9e63af4eb0f469969b5882ceab66, type: 3}
   plantType: 0

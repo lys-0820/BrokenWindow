@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162124d9111f29545b6737340604fbba, type: 3}
   m_Name: MistletoeCactus
   m_EditorClassIdentifier: 
-  plantName: Rhipsalis
+  name: Mistletoe Cactus
   description: Weirdly wonderful, like green spaghetti on vacation.
   image: {fileID: -9095816579524923964, guid: 89995f819563ba8409f145015f4dc74b, type: 3}
   plantType: 1
