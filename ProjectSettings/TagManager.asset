@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Backdrop
   layers:
   - Default
   - TransparentFX
@@ -38,11 +39,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG
+    uniqueID: 285545499
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Plants
     uniqueID: 1397448823
+    locked: 0
+  - name: FG
+    uniqueID: 2306638647
     locked: 0
   m_RenderingLayers:
   - Default
