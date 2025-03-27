@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc39818dd7d9aea44859021df00fd3b3, type: 3}
-  m_Name: hook
+  m_Script: {fileID: 11500000, guid: c6ca59d13192ed8478ab7ef31facd617, type: 3}
+  m_Name: poster
   m_EditorClassIdentifier: 
-  name: hook
-  description: perfect for hanging plants
-  image: {fileID: -49532090776259237, guid: 376883886b0e0c642af66b287c6e70ff, type: 3}
+  name: Poster
+  description: Small actions make great change.
+  image: {fileID: -3011681440091969271, guid: b8d44c9a54540db4c812f06e5238c3b7, type: 3}
+  itemType: 2
+  isUnlocked: 1

@@ -634,15 +634,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 909be8916e9e97945b03c4fb52614a10, type: 2}
   - {fileID: 11400000, guid: 3d3f03584b8c1834f8a09f36bd0aac91, type: 2}
   holderDataList:
-  - {fileID: 11400000, guid: 8bd55adf5e40a574388c5ecff9d35a1d, type: 2}
-  - {fileID: 11400000, guid: bc3735976ab04c34fb88ed50654ccd42, type: 2}
-  - {fileID: 11400000, guid: 806fa74c47943a34eab28b79400417a4, type: 2}
+  - {fileID: 11400000, guid: 134e208b5860e004c81bf3cf25475dad, type: 2}
+  - {fileID: 11400000, guid: 363d901e39d53a246abeb2ffc8795bb5, type: 2}
+  - {fileID: 11400000, guid: f20085bfb9a39244e8fff6a642261bc6, type: 2}
   decorationDataList:
-  - {fileID: 11400000, guid: 742742e1f3139b64c847c55cb5dd69d1, type: 2}
-  - {fileID: 11400000, guid: 1a6f77784f7a73c45bd3c0d6b81abe6c, type: 2}
-  - {fileID: 11400000, guid: eb23a792e38dfd54281c98f6acf349f8, type: 2}
-  plantPrefab: {fileID: 7884649082652385063, guid: f25edd9fdf4a0934ab556e99a895e7da, type: 3}
-  holderPrefab: {fileID: 7884649082652385063, guid: 0ac7dbbd0da3a48438acde52f41d14a0, type: 3}
+  - {fileID: 11400000, guid: b9fcf0212433e574e88ea9d2f2714c64, type: 2}
+  - {fileID: 11400000, guid: d16f3246ab4b80f4faafe38040b9e981, type: 2}
+  - {fileID: 11400000, guid: b1011be43a376f84a820aabdcf2305d8, type: 2}
+  itemPrefab: {fileID: 7884649082652385063, guid: 0ac7dbbd0da3a48438acde52f41d14a0, type: 3}
   decorationPrefab: {fileID: 7884649082652385063, guid: 81a764292fe6f434f9b6ae1c7cdedc7f, type: 3}
   parentTransform: {fileID: 1753957074}
 --- !u!1 &734046342
@@ -1262,8 +1261,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1467831458}
   m_HandleRect: {fileID: 1467831457}
   m_Direction: 2
-  m_Value: 1.0000001
-  m_Size: 0.33796102
+  m_Value: 1
+  m_Size: 0.30794036
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1782,7 +1781,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.00017948281}
-  m_SizeDelta: {x: 0, y: 3982.5293}
+  m_SizeDelta: {x: 0, y: 4370.7803}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1753957075
 MonoBehaviour:

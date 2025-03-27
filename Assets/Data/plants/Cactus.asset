@@ -15,4 +15,6 @@ MonoBehaviour:
   name: Cactus
   description: Tough, spiky, and totally chill with being ignored.
   image: {fileID: 7679083508794041174, guid: e1a3b488f2ec4854baf6266d74377819, type: 3}
+  itemType: 0
+  isUnlocked: 1
   plantType: 0

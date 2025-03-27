@@ -15,4 +15,6 @@ MonoBehaviour:
   name: Spider Plant
   description: Bouncy and full of life, always ready to grow more friends.
   image: {fileID: 2546458511190288876, guid: 60dba8c5a9a89674daa88d6e192498f9, type: 3}
+  itemType: 0
+  isUnlocked: 1
   plantType: 0

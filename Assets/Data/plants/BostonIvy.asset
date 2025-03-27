@@ -15,4 +15,6 @@ MonoBehaviour:
   name: Boston Ivy
   description: A quiet climber that loves to cover walls with charm.
   image: {fileID: -6590875200065019990, guid: 4d990c9cddac21c41b51873623e66353, type: 3}
+  itemType: 0
+  isUnlocked: 1
   plantType: 2

@@ -8,10 +8,7 @@ public enum PlantType
 }
 
 [CreateAssetMenu(menuName = "Scriptable Objects/Plant Data")]
-public class PlantData : ScriptableObject
+public class PlantData : PlaceableItemData
 {
-    public string name;
-    public string description;
-    public Sprite image;
     public PlantType plantType;
 }

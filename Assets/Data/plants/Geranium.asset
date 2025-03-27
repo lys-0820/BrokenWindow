@@ -15,4 +15,6 @@ MonoBehaviour:
   name: Geranium
   description: Bright, cheerful, and always in the mood to bloom.
   image: {fileID: -3656230578815113004, guid: 9b8c9e63af4eb0f469969b5882ceab66, type: 3}
+  itemType: 0
+  isUnlocked: 1
   plantType: 0

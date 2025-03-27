@@ -15,4 +15,6 @@ MonoBehaviour:
   name: Lily
   description: Graceful and calm, with petals like a gentle sigh.
   image: {fileID: -2078397060694843675, guid: 010e6caa7eea05543b3243490f426786, type: 3}
+  itemType: 0
+  isUnlocked: 1
   plantType: 0

@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6256c50d8daacdb479bc1273d1aa1676, type: 3}
-  m_Name: Statue
+  m_Script: {fileID: 11500000, guid: c6ca59d13192ed8478ab7ef31facd617, type: 3}
+  m_Name: shelf
   m_EditorClassIdentifier: 
-  name: Statue
-  description: Who is it??
-  image: {fileID: 6804807191054158518, guid: 99bc53d9d4132494ebc54ace487af6d1, type: 3}
+  name: Shelf
+  description: best place for potted plants
+  image: {fileID: 5795814407860715475, guid: 5d05617b696fe2748a89366e34871eda, type: 3}
+  itemType: 1
+  isUnlocked: 0

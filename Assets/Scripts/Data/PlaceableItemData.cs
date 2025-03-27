@@ -13,4 +13,5 @@ public class PlaceableItemData : ScriptableObject
     public string description;
     public Sprite image;
     public ItemType itemType;
+    public bool isUnlocked;
 }

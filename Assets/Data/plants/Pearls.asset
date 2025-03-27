@@ -15,4 +15,6 @@ MonoBehaviour:
   name: String of Pearls
   description: A stylish trail of tiny green jewels.
   image: {fileID: -5508528034942918875, guid: 33317776961aabf4e8c259b7d45bb84c, type: 3}
+  itemType: 0
+  isUnlocked: 1
   plantType: 1

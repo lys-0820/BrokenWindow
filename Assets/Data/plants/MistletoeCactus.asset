@@ -15,4 +15,6 @@ MonoBehaviour:
   name: Mistletoe Cactus
   description: Weirdly wonderful, like green spaghetti on vacation.
   image: {fileID: -9095816579524923964, guid: 89995f819563ba8409f145015f4dc74b, type: 3}
+  itemType: 0
+  isUnlocked: 1
   plantType: 1

@@ -5,17 +5,19 @@ using UnityEngine.UI;
 public class ShowItems : MonoBehaviour
 {
     public List<PlantData> plantDataList; 
-    public List<HolderData> holderDataList; // 新增的holder数据列表
-    public List<DecorationData> decorationDataList; // 新增的decoration数据列表
+    public List<PlaceableItemData> holderDataList; 
+    public List<PlaceableItemData> decorationDataList; 
     
-    public GameObject plantPrefab; // 预制体引用
-    public GameObject holderPrefab; // 新增的holder预制体引用
-    public GameObject decorationPrefab; // 新增的decoration预制体引用
-    public Transform parentTransform; // 预制体的父物体
+    //public GameObject plantPrefab; 
+    public GameObject itemPrefab; 
+    public GameObject decorationPrefab; 
+    public Transform parentTransform; // parent object of the prefabs
 
     void Start()
     {
-        InitializeItems(plantDataList); // 默认初始化植物
+        InitializeItems(plantDataList); 
+        InitializeItems(holderDataList);
+        InitializeItems(decorationDataList);
     }
 
     void Update()
@@ -23,9 +25,9 @@ public class ShowItems : MonoBehaviour
         
     }
 
-    public void OnTagSelected(string tag) // 新增的方法处理标签选择
+    public void OnTagSelected(string tag) 
     {
-        ClearParent(); // 清空父物体下的所有对象
+        ClearParent(); 
 
         switch (tag)
         {
@@ -41,7 +43,7 @@ public class ShowItems : MonoBehaviour
         }
     }
 
-    private void ClearParent() // 新增的方法清空父物体
+    private void ClearParent() 
     {
         foreach (Transform child in parentTransform)
         {
@@ -49,44 +51,23 @@ public class ShowItems : MonoBehaviour
         }
     }
 
-    private void InitializeItems<T>(List<T> dataList) // 新增的泛型方法初始化对象
+    private void InitializeItems<T>(List<T> dataList) 
     {
         foreach (var data in dataList)
         {
-            GameObject itemInstance = null;
-            if (data is PlantData)
+            if (((PlaceableItemData)(object)data).isUnlocked)
             {
-                itemInstance = Instantiate(plantPrefab, parentTransform);
-                // 获取 UI 组件并赋值
-                Text plantNameText = itemInstance.transform.Find("PlantName").GetComponent<Text>(); 
-                Text plantDescriptionText = itemInstance.transform.Find("PlantDes").GetComponent<Text>(); 
-                plantNameText.text = ((PlantData)(object)data).name; // 设置植物名称
-                plantDescriptionText.text = ((PlantData)(object)data).description;
-                Image plantImage = itemInstance.transform.Find("PlantImg").GetComponent<Image>();
-                plantImage.sprite = ((PlantData)(object)data).image;
+                GameObject itemInstance = null;
+                itemInstance = Instantiate(itemPrefab, parentTransform);
+                // assign value to UI
+                Text itemNameText = itemInstance.transform.Find("ItemName").GetComponent<Text>();
+                Text itemDescriptionText = itemInstance.transform.Find("ItemDes").GetComponent<Text>();
+                itemNameText.text = ((PlaceableItemData)(object)data).name;
+                itemDescriptionText.text = ((PlaceableItemData)(object)data).description;
+                Image itemImage = itemInstance.transform.Find("ItemImg").GetComponent<Image>();
+                itemImage.sprite = ((PlaceableItemData)(object)data).image;
             }
-            else if (data is HolderData)
-            {
-                itemInstance = Instantiate(holderPrefab, parentTransform);
-                // 获取 UI 组件并赋值
-                Text holderNameText = itemInstance.transform.Find("HolderName").GetComponent<Text>(); 
-                Text holderDescriptionText = itemInstance.transform.Find("HolderDes").GetComponent<Text>(); 
-                holderNameText.text = ((HolderData)(object)data).name; // 设置植物名称
-                holderDescriptionText.text = ((HolderData)(object)data).description;
-                Image holderImage = itemInstance.transform.Find("HolderImg").GetComponent<Image>();
-                holderImage.sprite = ((HolderData)(object)data).image;
-            }
-            else if (data is DecorationData)
-            {
-                itemInstance = Instantiate(decorationPrefab, parentTransform);
-                // 获取 UI 组件并赋值
-                Text decorationNameText = itemInstance.transform.Find("DecorationName").GetComponent<Text>(); 
-                Text decorationDescriptionText = itemInstance.transform.Find("DecorationDes").GetComponent<Text>(); 
-                decorationNameText.text = ((DecorationData)(object)data).name; // 设置植物名称
-                decorationDescriptionText.text = ((DecorationData)(object)data).description;
-                Image decorationImage = itemInstance.transform.Find("DecorationImg").GetComponent<Image>();
-                decorationImage.sprite = ((DecorationData)(object)data).image;
-            }
+
         }
     }
 }

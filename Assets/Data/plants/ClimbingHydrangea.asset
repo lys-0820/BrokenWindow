@@ -15,4 +15,6 @@ MonoBehaviour:
   name: Climbing Hydrangea
   description: A blooming beauty that climbs like she owns the place.
   image: {fileID: -6154702601891098727, guid: 3c8bfd9bc5ec8a74bb3456e4d86e4b1b, type: 3}
+  itemType: 0
+  isUnlocked: 1
   plantType: 2
