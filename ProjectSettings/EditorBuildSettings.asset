@@ -8,10 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BuildingScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/BalconyScene.unity
+    guid: 1d7827e4c3b4a0f44913bb810115e45d
   - enabled: 0
     path: Assets/Scenes/scene1.unity
     guid: b1e3ff2cb7af50542b11bd8f9f1dc9e9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scene2.unity
     guid: 526dfd9a8807f7c4ab886d05dead73bd
   - enabled: 0
