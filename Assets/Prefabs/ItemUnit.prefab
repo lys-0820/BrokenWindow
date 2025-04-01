@@ -298,7 +298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.74213827, g: 0.74213827, b: 0.74213827, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -327,4 +327,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plantPrefab: {fileID: 4331379568377246162, guid: aa1a6781048a4f047bca506444ce7e52, type: 3}
-  lerpSpeed: 10
+  canvas: {fileID: 0}

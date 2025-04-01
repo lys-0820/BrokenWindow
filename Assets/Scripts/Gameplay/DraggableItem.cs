@@ -1,33 +1,42 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     protected Camera mainCamera;
     protected Vector3 targetPosition;
     protected bool isDragging = false;
+    private Vector3 originalPosition;
 
     [SerializeField] protected float lerpSpeed = 10f; // Lerp speed for smooth dragging
-
-    // Shared variables for boundary checking
     protected SpriteRenderer spriteRenderer;
+
+    public void Init(Camera camera)
+    {
+        mainCamera = camera;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (mainCamera == null)
+        {
+            Debug.LogError("DraggableItem: Main camera not assigned!");
+        }
+
+        if (spriteRenderer == null)
+        {
+            Debug.LogError("DraggableItem: SpriteRenderer component is missing!");
+        }
+    }
 
     protected virtual void Start()
     {
         mainCamera = Camera.main;
-
-        if (mainCamera == null)
-        {
-            Debug.LogError("Main camera not found!");
-            return;
-        }
-
         spriteRenderer = GetComponent<SpriteRenderer>();
+        originalPosition = transform.position;
     }
 
     protected virtual void Update()
     {
-        // Smoothly move the object to the target position
         if (isDragging)
         {
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * lerpSpeed);
@@ -41,25 +50,47 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public virtual void OnDrag(PointerEventData eventData)
     {
-        // Convert mouse position to world position
         Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        mouseWorldPos.z = 0f; // Keep the same Z plane
-
-        // Clamp position within screen bounds
+        mouseWorldPos.z = 0f;
         targetPosition = ClampToScreenBounds(mouseWorldPos);
     }
 
     public virtual void OnEndDrag(PointerEventData eventData)
     {
         isDragging = false;
+
+        // Check for the nearest drop zone
+        Collider2D dropZone = GetNearestDropZone();
+        if (dropZone != null)
+        {
+            transform.position = dropZone.transform.position; // Snap to drop zone
+        }
+        else
+        {
+            transform.position = originalPosition; // Return to original position if no valid drop zone
+        }
+    }
+
+    private Collider2D GetNearestDropZone()
+    {
+        List<Collider2D> dropZones = new List<Collider2D>(Physics2D.OverlapCircleAll(transform.position, 0.5f));
+
+        foreach (Collider2D col in dropZones)
+        {
+            if (col.CompareTag("DropZone"))
+            {
+                return col; // Return the first valid drop zone found
+            }
+        }
+        return null; // No valid drop zone found
     }
 
     protected virtual Vector3 ClampToScreenBounds(Vector3 position)
     {
-        if (spriteRenderer == null) return position; // Safety check
+        if (spriteRenderer == null) return position;
 
-        float width = spriteRenderer.bounds.extents.x; // Half-width
-        float height = spriteRenderer.bounds.extents.y; // Half-height
+        float width = spriteRenderer.bounds.extents.x;
+        float height = spriteRenderer.bounds.extents.y;
 
         // Get screen bounds in world coordinates
         Vector3 minScreenBounds = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, mainCamera.nearClipPlane));
