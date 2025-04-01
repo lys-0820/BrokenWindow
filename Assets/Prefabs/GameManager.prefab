@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &610607817323127407
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8287990251111521389}
+  - component: {fileID: 938220311272934367}
+  - component: {fileID: 3920637099919282405}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8287990251111521389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610607817323127407}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &938220311272934367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610607817323127407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f378369907d357a459a2966b8171c1a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantCount: 0
+  timeJumpCount: 0
+  todoList:
+  - {fileID: 11400000, guid: 2182db0f978e77946b6473a928f0291a, type: 2}
+  - {fileID: 11400000, guid: 3b751d5768490f84b8b072b7319170e9, type: 2}
+  - {fileID: 11400000, guid: c8e1971fc5e6b624da9f290496c54977, type: 2}
+  - {fileID: 11400000, guid: f0927daf2f9306e41acfe956281f8bcd, type: 2}
+  - {fileID: 11400000, guid: cec44abd34a996f4d8ec41a9155e4c92, type: 2}
+--- !u!114 &3920637099919282405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610607817323127407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b69db8157be4fc844891c22cbb4d400b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

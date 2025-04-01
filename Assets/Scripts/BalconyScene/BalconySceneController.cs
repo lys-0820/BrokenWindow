@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class BalconySceneController : MonoBehaviour
 {
-    public Button BtHome;
+    [SerializeField] private Button BtHome;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
