@@ -5,19 +5,19 @@ using UnityEngine.UI;
 public class ShowItems : MonoBehaviour
 {
     public List<PlantData> plantDataList; 
-    public List<PlaceableItemData> holderDataList; 
-    public List<PlaceableItemData> decorationDataList; 
+    //public List<PlaceableItemData> holderDataList; 
+    //public List<PlaceableItemData> decorationDataList; 
     
     //public GameObject plantPrefab; 
     public GameObject itemPrefab; 
-    public GameObject decorationPrefab; 
+    //public GameObject decorationPrefab; 
     public Transform parentTransform; // parent object of the prefabs
 
     void Start()
     {
         InitializeItems(plantDataList); 
-        InitializeItems(holderDataList);
-        InitializeItems(decorationDataList);
+        //InitializeItems(holderDataList);
+        //InitializeItems(decorationDataList);
     }
 
     void Update()
@@ -34,12 +34,12 @@ public class ShowItems : MonoBehaviour
             case "plant":
                 InitializeItems(plantDataList);
                 break;
-            case "holder":
-                InitializeItems(holderDataList);
-                break;
-            case "decoration":
-                InitializeItems(decorationDataList);
-                break;
+            //case "holder":
+            //    InitializeItems(holderDataList);
+            //    break;
+            //case "decoration":
+            //    InitializeItems(decorationDataList);
+            //    break;
         }
     }
 
