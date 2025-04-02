@@ -4,97 +4,85 @@ using UnityEngine.EventSystems;
 public class ClockTicklingRotation : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [Header("Clock Hands")]
-    public Transform hourHand;  // Reference to the hour hand
-    public Transform minuteHand;  // Reference to the minute hand
+    public Transform hourHand;  
+    public Transform minuteHand;  
 
     private bool isDragging = false;
     private Vector3 lastMousePosition;
     private Vector3 clockCenter;
     private CircleCollider2D clockCollider;
-
+    
     [Header("Clock Settings")]
-    public float rotationSpeed = 10f; // The speed at which the clock hands rotate per tick (adjustable in the inspector)
-    private float accumulatedRotation = 0f;  // The accumulated rotation amount
+    public float rotationSpeed = 10f;
 
-    // Start is called before the first frame update
+    [Header("Animation")]
+    public Animator clockAnimator; // Reference to Animator component
+
     void Start()
     {
-        // Get the center of the clock (use the CircleCollider2D center)
-        clockCenter = GetComponent<CircleCollider2D>().bounds.center;
         clockCollider = GetComponent<CircleCollider2D>();
+        clockCenter = clockCollider.bounds.center;
     }
 
-    // Called when dragging starts
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (!IsMouseOverCollider(eventData))
             return;
 
         isDragging = true;
-        lastMousePosition = Input.mousePosition;
-        accumulatedRotation = 0f;  // Reset accumulated rotation
+        lastMousePosition = GetMouseWorldPosition();
+
+        // Start animation
+        if (clockAnimator != null) {
+            clockAnimator.SetBool("tickle", true);
+            print("tickling true");
+        } else {
+            print("NO ANIMATOR!!!!!!!!!!!!");
+        }
     }
 
-    // Called while dragging
     public void OnDrag(PointerEventData eventData)
     {
         if (!isDragging || !IsMouseOverCollider(eventData))
             return;
 
-        // Calculate the movement from the center of the clock to the mouse position (both x and y axis)
-        Vector3 mousePosition = Input.mousePosition;
+        Vector3 mousePosition = GetMouseWorldPosition();
         Vector3 delta = mousePosition - lastMousePosition;
 
-        // Only update if movement exceeds the threshold
-        if (delta.magnitude > 0.1f)
+        if (delta.magnitude > 0.001f)
         {
-            // The amount of rotation will be based on the distance dragged, scaled by the speed factor
-            accumulatedRotation += delta.magnitude * rotationSpeed * Time.deltaTime;
+            float scaledRotation = delta.magnitude * rotationSpeed;
+            if (minuteHand != null)
+                minuteHand.RotateAround(clockCenter, Vector3.forward, -scaledRotation);
 
-            // Update the clock hands based on the accumulated rotation
-            UpdateClockHands();
+            if (hourHand != null)
+                hourHand.RotateAround(clockCenter, Vector3.forward, -scaledRotation / 12f);
 
-            // Update the last mouse position for the next frame
             lastMousePosition = mousePosition;
         }
     }
 
-    // Called when dragging stops
     public void OnEndDrag(PointerEventData eventData)
     {
         isDragging = false;
+
+        // Stop animation
+        if (clockAnimator != null) {
+            print("tickling false");
+            clockAnimator.SetBool("tickle", false);
+        }
     }
 
-    // Updates the clock hands based on accumulated drag
-    private void UpdateClockHands()
+    private Vector3 GetMouseWorldPosition()
     {
-        // Rotate the minute hand based on accumulated rotation
-        if (minuteHand != null)
-        {
-            // Rotate clockwise (inverting the sign of rotation for clockwise movement)
-            minuteHand.RotateAround(clockCenter, Vector3.forward, -accumulatedRotation);
-        }
-
-        // Rotate the hour hand (scaled by 12, as 1 full rotation of minute hand = 1 hour)
-        if (hourHand != null)
-        {
-            // Rotate clockwise (inverting the sign of rotation for clockwise movement)
-            hourHand.RotateAround(clockCenter, Vector3.forward, -accumulatedRotation / 12f);
-        }
-
-        // Reset the accumulated rotation after applying the rotation
-        accumulatedRotation = 0f;
+        Vector3 screenMousePosition = Input.mousePosition;
+        screenMousePosition.z = 0;
+        return Camera.main.ScreenToWorldPoint(screenMousePosition);
     }
 
-    // Helper function to check if the mouse is over the clock collider
     private bool IsMouseOverCollider(PointerEventData eventData)
     {
-        Vector2 mousePos = eventData.position;
-
-        // Convert the mouse position to world space
-        Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 0));
-        
-        // Check if the world position is inside the clock's collider
+        Vector3 worldMousePosition = GetMouseWorldPosition();
         return clockCollider.OverlapPoint(worldMousePosition);
     }
 }
