@@ -3,8 +3,7 @@ using UnityEngine;
 public enum PlantType
 {
     Potted,
-    Hanging,
-    Wall
+    Hanging
 }
 
 [CreateAssetMenu(menuName = "Scriptable Objects/Plant Data")]

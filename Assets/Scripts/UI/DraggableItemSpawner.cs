@@ -8,6 +8,9 @@ public class DraggableItemSpawner : MonoBehaviour, IBeginDragHandler, IDragHandl
     private GameObject currentPlant;
     private Camera mainCamera;
 
+    public Sprite plantSprite;
+    public PlantType plantType;
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -21,14 +24,15 @@ public class DraggableItemSpawner : MonoBehaviour, IBeginDragHandler, IDragHandl
         // Spawn the plant in world space
         currentPlant = Instantiate(plantPrefab, mouseWorldPos, Quaternion.identity);
 
-        GameObject clickedUIObject = eventData.pointerCurrentRaycast.gameObject;
-        SetPlantImage(clickedUIObject);
+        SpriteRenderer spriteRenderer = currentPlant.GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = plantSprite;
 
         // Start dragging the newly created item
         DraggableItem draggable = currentPlant.GetComponent<DraggableItem>();
         if (draggable != null)
         {
             draggable.justSpawned = true;
+            draggable.plantType = plantType;
             draggable.Init(mainCamera);
             draggable.OnBeginDrag(eventData);
         }
@@ -62,22 +66,6 @@ public class DraggableItemSpawner : MonoBehaviour, IBeginDragHandler, IDragHandl
             {
                 draggable.OnEndDrag(eventData);
             }
-        }
-    }
-
-    private void SetPlantImage(GameObject clickedItemUnit) {
-        Transform itemImgTransform = clickedItemUnit.transform.Find("ItemImg");
-        Image plantImageUI =
-            itemImgTransform ? itemImgTransform.GetComponent<Image>() : null;
-
-        // Set the sprite of the newly instantiated plant to the UI sprite
-        if (currentPlant != null && plantImageUI != null)
-        {
-            Sprite plantSprite = plantImageUI.sprite;
-            SpriteRenderer plantRenderer = currentPlant.GetComponent<SpriteRenderer>();
-            plantRenderer.sprite = plantSprite;
-        } else {
-            print("could not set plant image");
         }
     }
 }

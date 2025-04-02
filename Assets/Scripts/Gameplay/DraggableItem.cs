@@ -11,6 +11,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private PlantDropZone originalDropZone;
 
     public bool justSpawned = false;
+    public PlantType plantType = PlantType.Potted;
 
     [SerializeField] protected float lerpSpeed = 10f; // Lerp speed for smooth dragging
     protected SpriteRenderer spriteRenderer;
@@ -68,7 +69,9 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         Collider2D dropZoneCollider = GetNearestDropZone();
         PlantDropZone plantDropZone =
             dropZoneCollider ? dropZoneCollider.GetComponent<PlantDropZone>() : null;
-        if (plantDropZone != null && plantDropZone.placedPlant == null)
+        if (plantDropZone != null
+                && plantDropZone.placedPlant == null
+                && plantDropZone.plantType == plantType)
         {
             plantDropZone.placedPlant = gameObject;
             transform.position = dropZoneCollider.transform.position; // Snap to drop zone

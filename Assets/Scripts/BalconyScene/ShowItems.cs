@@ -66,8 +66,11 @@ public class ShowItems : MonoBehaviour
                 itemDescriptionText.text = ((PlaceableItemData)(object)data).description;
                 Image itemImage = itemInstance.transform.Find("ItemImg").GetComponent<Image>();
                 itemImage.sprite = ((PlaceableItemData)(object)data).image;
+                
+                DraggableItemSpawner itemSpawner = itemInstance.GetComponent<DraggableItemSpawner>();
+                itemSpawner.plantSprite = ((PlaceableItemData)(object)data).image;
+                itemSpawner.plantType = ((PlantData)(object)data).plantType;
             }
-
         }
     }
 }
