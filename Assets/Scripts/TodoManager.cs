@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TodoManager : MonoBehaviour
 {
@@ -18,18 +19,33 @@ public class TodoManager : MonoBehaviour
         }
     }
 
-    public int plantCount = 0;
-    public int timeJumpCount = 0;
+    public int plantCount;
+    public int timeJumpCount;
 
-    // todo ÌõÄ¿×´Ì¬
-    public List<TodoData> todoList = new List<TodoData>();
+    // todo manager
+    public List<TodoPageData> todoPageList;
+    private TodoPageData currentPage;
+    private int currentPhase;
+    private int finishedTaskCount;
+
 
     void Start()
     {
-        foreach(var task in todoList)
+        plantCount = 0;
+        timeJumpCount = 0;
+        currentPhase = 0;
+        finishedTaskCount = 0;
+        foreach (var page in todoPageList)
         {
-            task.isCompleted = false;
+            foreach (var task in page.todoList)
+            {
+                task.isCompleted = false;
+            }
         }
+        currentPage = todoPageList[0];
+        TodoUI.Instance.InitUI(currentPage);
+
+
     }
 
     public void NotifyPlantPlaced()
@@ -50,16 +66,51 @@ public class TodoManager : MonoBehaviour
         timeJumpCount++;
         CheckTasks(TaskType.TimeJump, timeJumpCount);
     }
+    public void SwitchPage(int index)
+    {
+        if (index >= 0 && index < todoPageList.Count)
+        {
+            currentPage = todoPageList[index];
+            TodoUI.Instance.InitUI(currentPage);
+        }
+    }
     private void CheckTasks(TaskType type, int currentCount)
     {
-        foreach (var task in todoList)
+        foreach (var task in currentPage.todoList)
         {
             if (task.type == type && !task.isCompleted && currentCount >= task.targetCount)
             {
-                task.isCompleted = true;
+                
                 Debug.Log($"TODO Complete: {task.description}");
                 TodoUI.Instance.MarkTodoComplete(task.id);
+                task.isCompleted = true;
+                finishedTaskCount++;
             }
         }
+        if(finishedTaskCount>=currentPage.todoList.Count&& currentPhase<todoPageList.Count-1)
+        {
+            TodoUI.Instance.UnlockNewPage();
+            finishedTaskCount = 0;
+        }
     }
+    public TodoPageData GetCurrentPage()
+    {
+        return currentPage;
+    }
+
+    public bool GetTaskIsDone(string id)
+    {
+        foreach (var page in todoPageList)
+        {
+            foreach (var task in page.todoList)
+            {
+                if(task.id == id)
+                {
+                    return task.isCompleted;
+                }
+            }
+        }
+        return false;
+    }
+
 }

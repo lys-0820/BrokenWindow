@@ -16,4 +16,5 @@ MonoBehaviour:
   type: 0
   targetCount: 1
   description: Plant one invasive species
+  innerMonologue: Step one to planetary takeover.
   isCompleted: 1

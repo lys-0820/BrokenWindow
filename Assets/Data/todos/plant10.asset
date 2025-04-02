@@ -16,4 +16,5 @@ MonoBehaviour:
   type: 0
   targetCount: 10
   description: Plant 10 invasive species.
-  isCompleted: 0
+  innerMonologue: "Mission nearing completion\u2026 probably."
+  isCompleted: 1

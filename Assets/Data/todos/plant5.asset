@@ -16,4 +16,5 @@ MonoBehaviour:
   type: 0
   targetCount: 5
   description: Plant 5 species to accelerate planetary conversion
+  innerMonologue: To be honest, it's quite relaxing.
   isCompleted: 1

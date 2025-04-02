@@ -16,4 +16,5 @@ MonoBehaviour:
   type: 1
   targetCount: 1
   description: Use the Time Warp Egg
+  innerMonologue: Earth-time is frustratingly slow.
   isCompleted: 1

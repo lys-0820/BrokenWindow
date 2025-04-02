@@ -13,7 +13,7 @@ public class TodoData : ScriptableObject
     public TaskType type;
     public int targetCount;
     public string description;
-
+    public string innerMonologue;
     //[HideInInspector]
     public bool isCompleted = false;
 }

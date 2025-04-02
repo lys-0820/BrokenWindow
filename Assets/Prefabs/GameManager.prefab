@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8287990251111521389}
-  - component: {fileID: 938220311272934367}
   - component: {fileID: 3920637099919282405}
+  - component: {fileID: 5733482917121291668}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -33,7 +33,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &938220311272934367
+--- !u!114 &3920637099919282405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610607817323127407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b69db8157be4fc844891c22cbb4d400b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5733482917121291668
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,21 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantCount: 0
   timeJumpCount: 0
-  todoList:
-  - {fileID: 11400000, guid: 2182db0f978e77946b6473a928f0291a, type: 2}
-  - {fileID: 11400000, guid: 3b751d5768490f84b8b072b7319170e9, type: 2}
-  - {fileID: 11400000, guid: c8e1971fc5e6b624da9f290496c54977, type: 2}
-  - {fileID: 11400000, guid: f0927daf2f9306e41acfe956281f8bcd, type: 2}
-  - {fileID: 11400000, guid: cec44abd34a996f4d8ec41a9155e4c92, type: 2}
---- !u!114 &3920637099919282405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610607817323127407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b69db8157be4fc844891c22cbb4d400b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  todoPageList:
+  - {fileID: 11400000, guid: c66b5c3502874d04dba7c061b31a8850, type: 2}
+  - {fileID: 11400000, guid: 283e1419174369d44adf99df44e978af, type: 2}
+  - {fileID: 11400000, guid: ad91987835ea28746b99694f1119ded9, type: 2}
