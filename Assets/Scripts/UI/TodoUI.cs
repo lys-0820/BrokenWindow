@@ -9,7 +9,7 @@ public class TodoUI : MonoBehaviour
     public static TodoUI Instance;
 
     public GameObject todoItemPrefab;
-    public Transform contentPanel;
+    private Transform contentPanel;
     #region temp
     public Button BtAdd;
     public Button BtRemove;
@@ -23,11 +23,21 @@ public class TodoUI : MonoBehaviour
     public AudioSource audioSource;
 
     public Button BtClose;
+    public Sprite bgPage1;
+    public Sprite bgPage2;
+    public Sprite bgPage3;
+    public Image bgImg;
+    public GameObject panelPage1;
+    public GameObject panelPage2;
+    public GameObject panelPage3;
+
+    public GameObject stampObj;
     private void Awake()
     {
         if (Instance == null) Instance = this;
         BtPage2.interactable = false;
         BtPage3.interactable = false;
+        contentPanel = panelPage1.transform;
     }
 
     private void Start()
@@ -61,6 +71,31 @@ public class TodoUI : MonoBehaviour
         {
             BtPage2.interactable = true;
             BtPage3.interactable = true;
+        }
+        switch (tasks.phase)
+        {
+            case 0:
+                bgImg.sprite = bgPage1;
+                panelPage1.SetActive(true);
+                panelPage2.SetActive(false);
+                panelPage3.SetActive(false);
+                contentPanel = panelPage1.transform;
+                break;
+            case 1:
+                bgImg.sprite = bgPage2;
+                panelPage1.SetActive(false);
+                panelPage2.SetActive(true);
+                panelPage3.SetActive(false);
+                contentPanel = panelPage2.transform;
+                break;
+            case 2:
+                bgImg.sprite = bgPage3;
+                panelPage1.SetActive(false);
+                panelPage2.SetActive(false);
+                panelPage3.SetActive(true);
+                contentPanel = panelPage3.transform;
+                break;
+
         }
         foreach (var task in tasks.todoList)
         {
@@ -152,5 +187,10 @@ public class TodoUI : MonoBehaviour
     public void HideTodoPanel()
     {
         transform.gameObject.SetActive(false);
+    }
+
+    public void MakeStamp()
+    {
+        stampObj.GetComponent<Stamp>().Play();
     }
 }

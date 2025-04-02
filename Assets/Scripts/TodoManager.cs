@@ -69,10 +69,12 @@ public class TodoManager : MonoBehaviour
     }
     public void SwitchPage(int index)
     {
+        Debug.Log("switch to page " + index);
         if (index >= 0 && index < todoPageList.Count)
         {
             currentPage = todoPageList[index];
             TodoUI.Instance.InitUI(currentPage);
+            Debug.Log("switch to page " + index);
         }
     }
     private void CheckTasks(TaskType type, int currentCount)
@@ -89,12 +91,26 @@ public class TodoManager : MonoBehaviour
                 finishedTaskCount++;
             }
         }
-        if(finishedTaskCount>=currentPage.todoList.Count&& currentPhase<todoPageList.Count-1)
+        if(finishedTaskCount>=currentPage.todoList.Count)
         {
+            FinishOnePage();
+        }
+    }
+    private void FinishOnePage()
+    {
+        if(currentPhase < todoPageList.Count - 1)
+        {
+            TodoUI.Instance.MakeStamp();
             TodoUI.Instance.UnlockNewPage();
             currentPage = todoPageList[++currentPhase];
             finishedTaskCount = 0;
         }
+        else
+        {
+            TodoUI.Instance.MakeStamp();
+            finishedTaskCount = 0;
+        }
+
     }
     public TodoPageData GetCurrentPage()
     {
