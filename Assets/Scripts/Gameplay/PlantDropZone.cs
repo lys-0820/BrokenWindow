@@ -3,10 +3,23 @@ using UnityEngine;
 public class PlantDropZone : MonoBehaviour
 {
     public GameObject placedPlant;
-    public PlantType plantType;
+    public PlantType plantType = PlantType.Potted;
 
-    public void RemovePlant()
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake()
     {
-        placedPlant = null;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.enabled = false;
+    }
+
+    public void ShowDropZone()
+    {
+        spriteRenderer.enabled = true;
+    }
+
+    public void HideDropZone()
+    {
+        spriteRenderer.enabled = false;
     }
 }
