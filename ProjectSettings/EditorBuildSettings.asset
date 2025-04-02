@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BalconyScene.unity
     guid: 1d7827e4c3b4a0f44913bb810115e45d
+  - enabled: 1
+    path: Assets/Scenes/testSceneForTodo.unity
+    guid: cb7dd919b5280cb488984a3b40a75bc2
   - enabled: 0
     path: Assets/Scenes/scene1.unity
     guid: b1e3ff2cb7af50542b11bd8f9f1dc9e9
