@@ -20,10 +20,16 @@ public class TodoUI : MonoBehaviour
     #endregion
     private Dictionary<string, GameObject> todoTextMap = new Dictionary<string, GameObject>();
 
+    public AudioSource audioSource;
+
+    public Button BtClose;
     private void Awake()
     {
         if (Instance == null) Instance = this;
+        BtPage2.interactable = false;
+        BtPage3.interactable = false;
     }
+
     private void Start()
     {
         //InitUI(TodoManager.Instance.GetCurrentPage());
@@ -34,9 +40,9 @@ public class TodoUI : MonoBehaviour
         BtPage1.onClick.AddListener(() => TodoManager.Instance.SwitchPage(0));
         BtPage2.onClick.AddListener(() => TodoManager.Instance.SwitchPage(1));
         BtPage3.onClick.AddListener(() => TodoManager.Instance.SwitchPage(2));
-        BtPage2.interactable = false;
-        BtPage3.interactable = false;
         #endregion
+        BtClose.onClick.AddListener(HideTodoPanel);
+        transform.gameObject.SetActive(false);
     }
     public void InitUI(TodoPageData tasks)
     {
@@ -47,6 +53,15 @@ public class TodoUI : MonoBehaviour
             Destroy(child.gameObject);
         }
         todoTextMap.Clear();
+        if (tasks.phase == 1)
+        {
+            BtPage2.interactable = true;
+        }
+        else if (tasks.phase == 2)
+        {
+            BtPage2.interactable = true;
+            BtPage3.interactable = true;
+        }
         foreach (var task in tasks.todoList)
         {
             GameObject item = Instantiate(todoItemPrefab, contentPanel);
@@ -87,32 +102,31 @@ public class TodoUI : MonoBehaviour
     }
     public IEnumerator ShowComplete(GameObject taskItem, bool isTaskCompleted)
     {
-        // 获取两个子Text组件（确保命名一致或用tag也行）
         TMP_Text taskText = taskItem.transform.Find("todoText").GetComponent<TMP_Text>();
         TMP_Text hiddenMeaningText = taskItem.transform.Find("innerText").GetComponent<TMP_Text>();
+        yield return new WaitForSeconds(0.5f);
 
-        // 修改主任务文字样式
+        audioSource.Play();
+        yield return new WaitForSeconds(0.2f);
+        // change todo text
         taskText.fontStyle |= FontStyles.Strikethrough;
         taskText.color = Color.gray;
 
         yield return new WaitForSeconds(0.5f);
 
-        // 设置并显示 hidden meaning
-        hiddenMeaningText.gameObject.SetActive(true);
-        //hiddenMeaningText.text = hiddenMeaning;
-        hiddenMeaningText.alpha = 0f;
         hiddenMeaningText.gameObject.SetActive(true);
 
-        // 淡入动画
-        float duration = 1f;
-        float elapsed = 0f;
-        while (elapsed < duration)
+        // typewriter effect
+        string fullText = hiddenMeaningText.text;
+        hiddenMeaningText.text = "";
+        hiddenMeaningText.gameObject.SetActive(true);
+
+        float typeSpeed = 0.05f; // interval between each character
+        for (int i = 0; i <= fullText.Length; i++)
         {
-            hiddenMeaningText.alpha = Mathf.Lerp(0f, 1f, elapsed / duration);
-            elapsed += Time.deltaTime;
-            yield return null;
+            hiddenMeaningText.text = fullText.Substring(0, i);
+            yield return new WaitForSeconds(typeSpeed);
         }
-        hiddenMeaningText.alpha = 1f;
 
     }
     public void UnlockNewPage()
@@ -125,5 +139,18 @@ public class TodoUI : MonoBehaviour
         {
             BtPage3.interactable = true;
         }
+    }
+
+    public void AutoShow()
+    {
+
+    }
+    public void ShowTodoPanel()
+    {
+        transform.gameObject.SetActive(true);
+    }
+    public void HideTodoPanel()
+    {
+        transform.gameObject.SetActive(false);
     }
 }

@@ -24,7 +24,7 @@ public class TodoManager : MonoBehaviour
 
     // todo manager
     public List<TodoPageData> todoPageList;
-    private TodoPageData currentPage;
+    public TodoPageData currentPage;
     private int currentPhase;
     private int finishedTaskCount;
 
@@ -43,7 +43,8 @@ public class TodoManager : MonoBehaviour
             }
         }
         currentPage = todoPageList[0];
-        TodoUI.Instance.InitUI(currentPage);
+        Debug.Log(currentPage);
+        //TodoUI.Instance.InitUI(currentPage);
 
 
     }
@@ -82,6 +83,7 @@ public class TodoManager : MonoBehaviour
             {
                 
                 Debug.Log($"TODO Complete: {task.description}");
+                TodoUI.Instance.ShowTodoPanel();
                 TodoUI.Instance.MarkTodoComplete(task.id);
                 task.isCompleted = true;
                 finishedTaskCount++;
@@ -90,6 +92,7 @@ public class TodoManager : MonoBehaviour
         if(finishedTaskCount>=currentPage.todoList.Count&& currentPhase<todoPageList.Count-1)
         {
             TodoUI.Instance.UnlockNewPage();
+            currentPage = todoPageList[++currentPhase];
             finishedTaskCount = 0;
         }
     }

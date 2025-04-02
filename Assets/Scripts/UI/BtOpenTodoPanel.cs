@@ -1,16 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
-public class BalconySceneController : MonoBehaviour
+public class BtOpenTodoPanel : MonoBehaviour
 {
-    [SerializeField] private Button BtHome;
+    [SerializeField] private Button BtOpen;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        BtHome.onClick.AddListener(() =>
+        BtOpen.onClick.AddListener(() =>
         {
-            SceneController.Instance.loadScene("BuildingScene");
+            TodoUI.Instance.ShowTodoPanel();
         });
-        TodoUI.Instance.InitUI(TodoManager.Instance.currentPage);
     }
 
     // Update is called once per frame
