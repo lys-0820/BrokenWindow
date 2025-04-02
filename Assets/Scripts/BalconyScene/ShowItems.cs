@@ -60,10 +60,10 @@ public class ShowItems : MonoBehaviour
                 GameObject itemInstance = null;
                 itemInstance = Instantiate(itemPrefab, parentTransform);
                 // assign value to UI
-                Text itemNameText = itemInstance.transform.Find("ItemName").GetComponent<Text>();
-                Text itemDescriptionText = itemInstance.transform.Find("ItemDes").GetComponent<Text>();
-                itemNameText.text = ((PlaceableItemData)(object)data).name;
-                itemDescriptionText.text = ((PlaceableItemData)(object)data).description;
+                //Text itemNameText = itemInstance.transform.Find("ItemName").GetComponent<Text>();
+                //Text itemDescriptionText = itemInstance.transform.Find("ItemDes").GetComponent<Text>();
+                //itemNameText.text = ((PlaceableItemData)(object)data).name;
+                //itemDescriptionText.text = ((PlaceableItemData)(object)data).description;
                 Image itemImage = itemInstance.transform.Find("ItemImg").GetComponent<Image>();
                 itemImage.sprite = ((PlaceableItemData)(object)data).image;
                 
