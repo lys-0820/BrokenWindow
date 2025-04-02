@@ -9,6 +9,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     protected bool isDragging = false;
     private Vector3 originalPosition;
     private PlantDropZone originalDropZone;
+    private PlantDropZone[] allDropZones;
 
     public bool justSpawned = false;
     public PlantType plantType = PlantType.Potted;
@@ -20,6 +21,11 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         mainCamera = camera;
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Awake()
+    {
+        allDropZones = FindObjectsByType<PlantDropZone>(FindObjectsSortMode.None);
     }
 
     protected virtual void Start()
@@ -40,6 +46,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         originalPosition = transform.position;
         isDragging = true;
+        ShowValidDropZones();
 
         // Store the original drop zone before dragging
         Collider2D dropZoneCollider = GetNearestDropZone();
@@ -64,6 +71,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public virtual void OnEndDrag(PointerEventData eventData)
     {
         isDragging = false;
+        HideAllDropZones();
 
         // Check for the nearest drop zone
         Collider2D dropZoneCollider = GetNearestDropZone();
@@ -133,6 +141,24 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             {
                 originalDropZone.placedPlant = gameObject;
             }
+        }
+    }
+
+    private void ShowValidDropZones() {
+        foreach (var dropZone in allDropZones)
+        {
+            if (dropZone.plantType == plantType)
+            {
+                dropZone.ShowDropZone();
+            }
+        }
+    }
+
+    private void HideAllDropZones()
+    {
+        foreach (var dropZone in allDropZones)
+        {
+            dropZone.HideDropZone();
         }
     }
 }
