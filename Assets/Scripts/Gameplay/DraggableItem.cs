@@ -32,6 +32,12 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         mainCamera = Camera.main;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        ClockController.OnDayPassed += HandleDayPassed;
+    }
+
+    void OnDestroy()
+    {
+        ClockController.OnDayPassed -= HandleDayPassed;
     }
 
     protected virtual void Update()
@@ -161,4 +167,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             dropZone.HideDropZone();
         }
     }
+
+    private void HandleDayPassed() {
+        print("DAY PASSED!!!!!!!!!!!!!!!!!");
+    } 
 }

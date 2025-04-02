@@ -1,7 +1,8 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ClockTicklingRotation : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class ClockController : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [Header("Clock Hands")]
     public Transform hourHand;  
@@ -11,12 +12,21 @@ public class ClockTicklingRotation : MonoBehaviour, IBeginDragHandler, IDragHand
     private Vector3 lastMousePosition;
     private Vector3 clockCenter;
     private CircleCollider2D clockCollider;
+
+    private float totalHourRotation = 0f; // Accumulates for day passing
+    private bool IsDaytime = true;
     
     [Header("Clock Settings")]
     public float rotationSpeed = 10f;
 
     [Header("Animation")]
     public Animator clockAnimator; // Reference to Animator component
+
+    public delegate void HalfDayPassed();
+    public static event HalfDayPassed OnHalfDayPassed;
+
+    public delegate void DayPassed();
+    public static event DayPassed OnDayPassed;
 
     void Start()
     {
@@ -51,12 +61,28 @@ public class ClockTicklingRotation : MonoBehaviour, IBeginDragHandler, IDragHand
 
         if (delta.magnitude > 0.001f)
         {
-            float scaledRotation = delta.magnitude * rotationSpeed;
+            float scaledRotation = -delta.magnitude * rotationSpeed;
             if (minuteHand != null)
-                minuteHand.RotateAround(clockCenter, Vector3.forward, -scaledRotation);
+                minuteHand.RotateAround(clockCenter, Vector3.forward, scaledRotation);
 
-            if (hourHand != null)
-                hourHand.RotateAround(clockCenter, Vector3.forward, -scaledRotation / 12f);
+            if (hourHand != null) {
+                float hourRotation = scaledRotation / 12f;
+                hourHand.RotateAround(clockCenter, Vector3.forward, hourRotation);
+                totalHourRotation += Mathf.Abs(hourRotation);
+
+                // Check if the hour hand has completed a full circle (360 degrees)
+                if (totalHourRotation >= 180f)
+                {
+                    totalHourRotation = 0f; // Reset counter
+                    OnHalfDayPassed?.Invoke(); // Notify observers
+                    IsDaytime = !IsDaytime; // Alternate between day and night
+
+                    // If it's day again notify a full day has passed.
+                    if (IsDaytime) {
+                        OnDayPassed?.Invoke();
+                    }
+                }
+            }
 
             lastMousePosition = mousePosition;
         }
