@@ -11,13 +11,6 @@ public class DraggableItemSpawner : MonoBehaviour, IBeginDragHandler, IDragHandl
     private void Start()
     {
         mainCamera = Camera.main;
-
-        // Ensure this object does not block drag input in Scroll View
-        Image image = GetComponent<Image>();
-        if (image != null)
-        {
-            image.raycastTarget = false;
-        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -27,6 +20,9 @@ public class DraggableItemSpawner : MonoBehaviour, IBeginDragHandler, IDragHandl
 
         // Spawn the plant in world space
         currentPlant = Instantiate(plantPrefab, mouseWorldPos, Quaternion.identity);
+
+        GameObject clickedUIObject = eventData.pointerCurrentRaycast.gameObject;
+        SetPlantImage(clickedUIObject);
 
         // Start dragging the newly created item
         DraggableItem draggable = currentPlant.GetComponent<DraggableItem>();
@@ -66,6 +62,22 @@ public class DraggableItemSpawner : MonoBehaviour, IBeginDragHandler, IDragHandl
             {
                 draggable.OnEndDrag(eventData);
             }
+        }
+    }
+
+    private void SetPlantImage(GameObject clickedItemUnit) {
+        Transform itemImgTransform = clickedItemUnit.transform.Find("ItemImg");
+        Image plantImageUI =
+            itemImgTransform ? itemImgTransform.GetComponent<Image>() : null;
+
+        // Set the sprite of the newly instantiated plant to the UI sprite
+        if (currentPlant != null && plantImageUI != null)
+        {
+            Sprite plantSprite = plantImageUI.sprite;
+            SpriteRenderer plantRenderer = currentPlant.GetComponent<SpriteRenderer>();
+            plantRenderer.sprite = plantSprite;
+        } else {
+            print("could not set plant image");
         }
     }
 }
