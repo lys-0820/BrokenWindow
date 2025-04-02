@@ -4,8 +4,7 @@ using UnityEngine.UI;
 
 public class DraggableItemSpawner : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    [SerializeField] private GameObject plantPrefab;  // Prefab with DraggableItem
-    [SerializeField] private Canvas canvas; // Assign main canvas
+    [SerializeField] private GameObject plantPrefab;
     private GameObject currentPlant;
     private Camera mainCamera;
 
@@ -33,6 +32,7 @@ public class DraggableItemSpawner : MonoBehaviour, IBeginDragHandler, IDragHandl
         DraggableItem draggable = currentPlant.GetComponent<DraggableItem>();
         if (draggable != null)
         {
+            draggable.justSpawned = true;
             draggable.Init(mainCamera);
             draggable.OnBeginDrag(eventData);
         }

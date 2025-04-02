@@ -8,6 +8,9 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     protected Vector3 targetPosition;
     protected bool isDragging = false;
     private Vector3 originalPosition;
+    private PlantDropZone originalDropZone;
+
+    public bool justSpawned = false;
 
     [SerializeField] protected float lerpSpeed = 10f; // Lerp speed for smooth dragging
     protected SpriteRenderer spriteRenderer;
@@ -16,23 +19,12 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         mainCamera = camera;
         spriteRenderer = GetComponent<SpriteRenderer>();
-
-        if (mainCamera == null)
-        {
-            Debug.LogError("DraggableItem: Main camera not assigned!");
-        }
-
-        if (spriteRenderer == null)
-        {
-            Debug.LogError("DraggableItem: SpriteRenderer component is missing!");
-        }
     }
 
     protected virtual void Start()
     {
         mainCamera = Camera.main;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        originalPosition = transform.position;
     }
 
     protected virtual void Update()
@@ -45,7 +37,20 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public virtual void OnBeginDrag(PointerEventData eventData)
     {
+        originalPosition = transform.position;
         isDragging = true;
+
+        // Store the original drop zone before dragging
+        Collider2D dropZoneCollider = GetNearestDropZone();
+        if (dropZoneCollider != null)
+        {
+            originalDropZone = dropZoneCollider.GetComponent<PlantDropZone>();
+        }
+
+        if (originalDropZone != null && originalDropZone.placedPlant == gameObject)
+        {
+            originalDropZone.placedPlant = null; // Remove plant from the old drop zone
+        }
     }
 
     public virtual void OnDrag(PointerEventData eventData)
@@ -60,14 +65,18 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         isDragging = false;
 
         // Check for the nearest drop zone
-        Collider2D dropZone = GetNearestDropZone();
-        if (dropZone != null)
+        Collider2D dropZoneCollider = GetNearestDropZone();
+        PlantDropZone plantDropZone =
+            dropZoneCollider ? dropZoneCollider.GetComponent<PlantDropZone>() : null;
+        if (plantDropZone != null && plantDropZone.placedPlant == null)
         {
-            transform.position = dropZone.transform.position; // Snap to drop zone
+            plantDropZone.placedPlant = gameObject;
+            transform.position = dropZoneCollider.transform.position; // Snap to drop zone
+            justSpawned = false;
         }
         else
         {
-            transform.position = originalPosition; // Return to original position if no valid drop zone
+            HandleIllegalPlantDrop();
         }
     }
 
@@ -101,5 +110,26 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         position.y = Mathf.Clamp(position.y, minScreenBounds.y + height, maxScreenBounds.y - height);
 
         return position;
+    }
+
+    public void OnDropSuccessful()
+    {
+        isDragging = false;
+    }
+
+    private void HandleIllegalPlantDrop()
+    {
+        if (justSpawned)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            transform.position = originalPosition;
+            if (originalDropZone != null && originalDropZone.placedPlant == null)
+            {
+                originalDropZone.placedPlant = gameObject;
+            }
+        }
     }
 }
