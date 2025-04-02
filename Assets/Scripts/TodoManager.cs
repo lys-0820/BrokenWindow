@@ -110,6 +110,7 @@ public class TodoManager : MonoBehaviour
             TodoUI.Instance.MakeStamp();
             finishedTaskCount = 0;
         }
+        
 
     }
     public TodoPageData GetCurrentPage()
@@ -130,6 +131,10 @@ public class TodoManager : MonoBehaviour
             }
         }
         return false;
+    }
+    public int GetCurrentPhase()
+    {
+        return currentPhase;
     }
 
 }

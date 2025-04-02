@@ -111,8 +111,6 @@ public class TodoUI : MonoBehaviour
     {
         if (todoTextMap.TryGetValue(id, out GameObject TaskItem))
         {
-            Debug.Log(TaskItem);
-
             StartCoroutine(ShowComplete(TaskItem, TodoManager.Instance.GetTaskIsDone(id)));
         }
     }

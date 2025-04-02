@@ -21,6 +21,8 @@ public class SceneController : MonoBehaviour
     // load scenes
     public void loadScene(string sceneName)
     {
+        int currentPhase = TodoManager.Instance.GetCurrentPhase();
+        Debug.Log("currentPhase: " + currentPhase);
         SceneManager.LoadScene(sceneName);
     }
 
