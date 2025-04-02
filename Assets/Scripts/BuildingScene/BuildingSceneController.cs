@@ -14,7 +14,7 @@ public class BuildingSceneController : MonoBehaviour
         levelupObj.SetActive(false);
         BtScene1.onClick.AddListener(() =>
         {
-            SceneController.Instance.loadScene("testSceneForTodo");
+            SceneController.Instance.loadScene("BalconyScene");
         });
         //BtScene2.onClick.AddListener(() =>
         //{
