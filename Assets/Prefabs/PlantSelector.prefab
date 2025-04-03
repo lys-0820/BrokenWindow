@@ -120,7 +120,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8010613567874612121}
   m_HandleRect: {fileID: 2005208922325966328}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -672,6 +672,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plantDataList:
+  - {fileID: 11400000, guid: 22d3af155864ec74eadba5b35a3487dc, type: 2}
+  - {fileID: 11400000, guid: 34917f3b65548334fa0b89821f571ed5, type: 2}
+  - {fileID: 11400000, guid: 4808897f16e924042979a25023d764d3, type: 2}
+  - {fileID: 11400000, guid: 90ef3bb8e0bf16b4086840fa837fd953, type: 2}
   - {fileID: 11400000, guid: 38316c32ee037874eb7848585e0ca6df, type: 2}
   - {fileID: 11400000, guid: f26728f6c35d3d449a5275ff13f41d8f, type: 2}
   - {fileID: 11400000, guid: 9dc3e6b453fe70949a1db1f042c86b6a, type: 2}
@@ -682,10 +686,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6f95fca7105821c458c683f041cdfd86, type: 2}
   - {fileID: 11400000, guid: 909be8916e9e97945b03c4fb52614a10, type: 2}
   - {fileID: 11400000, guid: 3d3f03584b8c1834f8a09f36bd0aac91, type: 2}
-  - {fileID: 11400000, guid: 22d3af155864ec74eadba5b35a3487dc, type: 2}
-  - {fileID: 11400000, guid: 34917f3b65548334fa0b89821f571ed5, type: 2}
-  - {fileID: 11400000, guid: 4808897f16e924042979a25023d764d3, type: 2}
-  - {fileID: 11400000, guid: 90ef3bb8e0bf16b4086840fa837fd953, type: 2}
   itemPrefab: {fileID: 7884649082652385063, guid: 0ac7dbbd0da3a48438acde52f41d14a0, type: 3}
   parentTransform: {fileID: 3748985536909908282}
 --- !u!1 &8620926419078564455
