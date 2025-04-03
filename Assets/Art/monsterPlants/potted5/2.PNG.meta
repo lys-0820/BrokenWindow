@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7f44efa189157294e94b4035895268c1
+guid: 8645a14dedb95d34885239af74f42e1b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5419552572755535562
-    second: BABY PLANT_0
+      213: 6937817954938267909
+    second: 2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,40 +96,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BABY PLANT_0
+      name: 2_0
       rect:
         serializedVersion: 2
-        x: 389
-        y: 537
-        width: 249
-        height: 416
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 20
+        y: 10
+        width: 808
+        height: 1403
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6391a5b26a1e9c4b0800000000000000
-      internalID: -5419552572755535562
+      spriteID: 5092c600ca4184060800000000000000
+      internalID: 6937817954938267909
       vertices: []
       indices: 
       edges: []
@@ -138,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c45ab5d896d042c409bf1426d34fecfa
+    spriteID: 0ff5ca8e305f5264fbf2161480f14cac
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BABY PLANT_0: -5419552572755535562
+      2_0: 6937817954938267909
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

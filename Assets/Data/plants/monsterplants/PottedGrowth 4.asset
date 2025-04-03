@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c0d08d3f93f99842b8a368c8e12fc66, type: 3}
+  m_Name: PottedGrowth 4
+  m_EditorClassIdentifier: 
+  babySprite: {fileID: -855298285791758126, guid: 6d1da4ac5aaa5fc4fa0216a41d08c2f7, type: 3}
+  childSprite: {fileID: 6937817954938267909, guid: 6ac84fcf61710eb41aedfa9476f1c8b2, type: 3}
+  adultSprite: {fileID: -6470460504253458178, guid: c8f6fcc139a8cd744b2125169b0eecd8, type: 3}
+  adultAnimation: {fileID: 0}
+  babyDuration: 1
+  childDuration: 1

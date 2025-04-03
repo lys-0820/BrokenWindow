@@ -28,9 +28,13 @@ public class ClockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     public delegate void DayPassed();
     public static event DayPassed OnDayPassed;
 
+    // public AudioClip tickleSound;
+    private AudioSource audioSource;
+
     void Start()
     {
         clockCollider = GetComponent<CircleCollider2D>();
+        audioSource = GetComponent<AudioSource>();
         clockCenter = clockCollider.bounds.center;
     }
 
@@ -46,6 +50,7 @@ public class ClockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         if (clockAnimator != null) {
             clockAnimator.SetBool("tickle", true);
             print("tickling true");
+            audioSource.Play();
         } else {
             print("NO ANIMATOR!!!!!!!!!!!!");
         }
@@ -96,6 +101,7 @@ public class ClockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         if (clockAnimator != null) {
             print("tickling false");
             clockAnimator.SetBool("tickle", false);
+            audioSource.Stop();
         }
     }
 
