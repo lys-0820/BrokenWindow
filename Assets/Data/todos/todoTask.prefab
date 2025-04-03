@@ -105,7 +105,7 @@ MonoBehaviour:
   m_text: Use the Time Warp Egg wqwwqfeqfewafe
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 136e0d9070e421e44882c9f60c194cc8, type: 2}
-  m_sharedMaterial: {fileID: 3530872090052476481, guid: 136e0d9070e421e44882c9f60c194cc8, type: 2}
+  m_sharedMaterial: {fileID: -8573375246528393772, guid: 136e0d9070e421e44882c9f60c194cc8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -129,8 +129,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_text: Use theTime Warp aaaaaaaaaaaaa
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 136e0d9070e421e44882c9f60c194cc8, type: 2}
-  m_sharedMaterial: {fileID: 3530872090052476481, guid: 136e0d9070e421e44882c9f60c194cc8, type: 2}
+  m_sharedMaterial: {fileID: -8573375246528393772, guid: 136e0d9070e421e44882c9f60c194cc8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -265,8 +265,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

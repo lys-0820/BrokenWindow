@@ -10,17 +10,14 @@ public class TodoUI : MonoBehaviour
 
     public GameObject todoItemPrefab;
     private Transform contentPanel;
-    #region temp
-    public Button BtAdd;
-    public Button BtRemove;
-    public Button BtTime;
+
     public Button BtPage1;
     public Button BtPage2;
     public Button BtPage3;
-    #endregion
+
     private Dictionary<string, GameObject> todoTextMap = new Dictionary<string, GameObject>();
 
-    public AudioSource audioSource;
+    public AudioSource pencilAudioSource;
 
     public Button BtClose;
     public Sprite bgPage1;
@@ -32,6 +29,8 @@ public class TodoUI : MonoBehaviour
     public GameObject panelPage3;
 
     public GameObject stampObj;
+
+    public AudioSource flipAudioSource;
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -43,15 +42,9 @@ public class TodoUI : MonoBehaviour
     private void Start()
     {
         //InitUI(TodoManager.Instance.GetCurrentPage());
-        #region temp
-        BtAdd.onClick.AddListener(TodoManager.Instance.NotifyPlantPlaced);
-        BtRemove.onClick.AddListener(TodoManager.Instance.NotifyPlantRemove);
-        // replaced by delegate OnDayPassed function
-        // BtTime.onClick.AddListener(TodoManager.Instance.NotifyTimeJumpUsed);
-        BtPage1.onClick.AddListener(() => TodoManager.Instance.SwitchPage(0));
-        BtPage2.onClick.AddListener(() => TodoManager.Instance.SwitchPage(1));
-        BtPage3.onClick.AddListener(() => TodoManager.Instance.SwitchPage(2));
-        #endregion
+        BtPage1.onClick.AddListener(() => StartCoroutine(TodoManager.Instance.SwitchPage(0)));
+        BtPage2.onClick.AddListener(() => StartCoroutine(TodoManager.Instance.SwitchPage(1)));
+        BtPage3.onClick.AddListener(() => StartCoroutine(TodoManager.Instance.SwitchPage(2)));
         BtClose.onClick.AddListener(HideTodoPanel);
         transform.gameObject.SetActive(false);
     }
@@ -140,7 +133,7 @@ public class TodoUI : MonoBehaviour
         TMP_Text hiddenMeaningText = taskItem.transform.Find("innerText").GetComponent<TMP_Text>();
         yield return new WaitForSeconds(0.5f);
 
-        audioSource.Play();
+        pencilAudioSource.Play();
         yield return new WaitForSeconds(0.2f);
         // change todo text
         taskText.fontStyle |= FontStyles.Strikethrough;
@@ -175,10 +168,6 @@ public class TodoUI : MonoBehaviour
         }
     }
 
-    public void AutoShow()
-    {
-
-    }
     public void ShowTodoPanel()
     {
         transform.gameObject.SetActive(true);
@@ -188,8 +177,13 @@ public class TodoUI : MonoBehaviour
         transform.gameObject.SetActive(false);
     }
 
-    public void MakeStamp()
+    public IEnumerator MakeStamp()
     {
         stampObj.GetComponent<Stamp>().Play();
+        yield return new WaitForSeconds(6f);
+    }
+    public void PlayFlipSound()
+    {
+        flipAudioSource.Play();
     }
 }

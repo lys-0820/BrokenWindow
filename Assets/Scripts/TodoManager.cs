@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -74,15 +75,17 @@ public class TodoManager : MonoBehaviour
         CheckTasks(TaskType.TimeJump, timeJumpCount);
     }
 
-    public void SwitchPage(int index)
+    public IEnumerator SwitchPage(int index)
     {
         Debug.Log("switch to page " + index);
         if (index >= 0 && index < todoPageList.Count)
         {
+            TodoUI.Instance.PlayFlipSound();
             currentPage = todoPageList[index];
             TodoUI.Instance.InitUI(currentPage);
             Debug.Log("switch to page " + index);
         }
+        yield return null;
     }
     private void CheckTasks(TaskType type, int currentCount)
     {
@@ -100,21 +103,27 @@ public class TodoManager : MonoBehaviour
         }
         if(finishedTaskCount>=currentPage.todoList.Count)
         {
-            FinishOnePage();
+            StartCoroutine(FinishOnePage());
         }
     }
-    private void FinishOnePage()
+    private IEnumerator FinishOnePage()
     {
         if(currentPhase < todoPageList.Count - 1)
         {
-            TodoUI.Instance.MakeStamp();
+            yield return StartCoroutine(TodoUI.Instance.MakeStamp());
             TodoUI.Instance.UnlockNewPage();
             currentPage = todoPageList[++currentPhase];
             finishedTaskCount = 0;
+            yield return StartCoroutine(SwitchPage(currentPhase));
+            //SwitchPage(currentPhase);
+            CheckTasks(TaskType.Plant, plantCount);
+            CheckTasks(TaskType.TimeJump, timeJumpCount);
+            
         }
         else
         {
-            TodoUI.Instance.MakeStamp();
+            StartCoroutine(TodoUI.Instance.MakeStamp());
+            
             finishedTaskCount = 0;
         }
         
