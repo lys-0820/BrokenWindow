@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2cd7e588936af1b48ac14ddca6876561
+guid: c98f19573ef96f749a82a6d455eb3555
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -103,12 +103,12 @@ TextureImporter:
       name: ADULT PLANT 2_0
       rect:
         serializedVersion: 2
-        x: 231
-        y: 537
-        width: 544
-        height: 648
+        x: 288
+        y: 469
+        width: 458
+        height: 520
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 656b88ed65e9780458b094b0faf57d76
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      ADULT PLANT 2_0: 6566513256661933417
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2cd7e588936af1b48ac14ddca6876561
+guid: 2ea3e3c7ff4209446977d488bf351b69
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6566513256661933417
-    second: ADULT PLANT 2_0
+      213: -4360066785186000735
+    second: CHILD PLANT_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ADULT PLANT 2_0
+      name: CHILD PLANT_0
       rect:
         serializedVersion: 2
-        x: 231
-        y: 537
-        width: 544
-        height: 648
+        x: 696
+        y: 1053
+        width: 1066
+        height: 911
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 96d5a3c1401f02b50800000000000000
-      internalID: 6566513256661933417
+      spriteID: 1a052080c5eed73c0800000000000000
+      internalID: -4360066785186000735
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 656b88ed65e9780458b094b0faf57d76
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      ADULT PLANT 2_0: 6566513256661933417
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

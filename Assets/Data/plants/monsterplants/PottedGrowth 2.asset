@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c0d08d3f93f99842b8a368c8e12fc66, type: 3}
-  m_Name: HandPlantGrowthData
+  m_Name: PottedGrowth 2
   m_EditorClassIdentifier: 
-  babySprite: {fileID: -5419552572755535562, guid: 7f44efa189157294e94b4035895268c1, type: 3}
-  childSprite: {fileID: -4360066785186000735, guid: 9c4549f18866b53488643259d09c6385, type: 3}
-  adultSprite: {fileID: 8734713957740828143, guid: 996b02fd78a06cb44b667cf47d6be8b2, type: 3}
-  adultAnimation: {fileID: 9100000, guid: 4390ed0c09b41d14d8f62bb0ef163a3e, type: 2}
+  babySprite: {fileID: -5419552572755535562, guid: 158edfd6e834fb042a607c15674b5a82, type: 3}
+  childSprite: {fileID: -4360066785186000735, guid: 01356257953fb654fac0eb129647461c, type: 3}
+  adultSprite: {fileID: 8734713957740828143, guid: e8cabc781b8dafe40904a527bec8f810, type: 3}
+  adultAnimation: {fileID: 9100000, guid: 8afcaad28ed05d3439c3136470d5e1f9, type: 2}
   babyDuration: 1
   childDuration: 1

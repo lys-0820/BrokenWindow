@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 162124d9111f29545b6737340604fbba, type: 3}
-  m_Name: HandPlant
+  m_Name: Potted 1
   m_EditorClassIdentifier: 
   plantName: HandPlant
   description: will slap yo ass
