@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantName: HandPlant
   description: will slap yo ass
-  image: {fileID: 8734713957740828143, guid: 996b02fd78a06cb44b667cf47d6be8b2, type: 3}
+  image: {fileID: 2037120817534264460, guid: e1fde78fc4582604d8d9d06f1fd0c691, type: 3}
   itemType: 0
   isUnlocked: 1
   plantType: 0
   growthData: {fileID: 11400000, guid: bceaedcd51b12db4d850542b20d5b439, type: 2}
-  scaleFactor: 0.4
+  scaleFactor: 0.15

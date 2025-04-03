@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 3
   type: 1
   targetCount: 1
-  description: Use the Time Warp Egg
-  innerMonologue: Earth-time is frustratingly slow.
-  isCompleted: 1
+  description: Tickle the time warp monster :3
+  innerMonologue: Earth-time is sooo slow.
+  isCompleted: 0

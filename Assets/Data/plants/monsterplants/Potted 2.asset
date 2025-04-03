@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantName: eye
   description: eye
-  image: {fileID: 8734713957740828143, guid: e8cabc781b8dafe40904a527bec8f810, type: 3}
+  image: {fileID: 21300000, guid: e8cabc781b8dafe40904a527bec8f810, type: 3}
   itemType: 0
   isUnlocked: 1
   plantType: 0
   growthData: {fileID: 11400000, guid: 706dd5c1551611b4b82f1ff21e8e44eb, type: 2}
-  scaleFactor: 0.4
+  scaleFactor: 0.15

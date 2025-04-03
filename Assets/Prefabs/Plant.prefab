@@ -153,7 +153,7 @@ MonoBehaviour:
   plantType: 0
   growthData: {fileID: 0}
   lerpSpeed: 10
-  dropZoneOffset: {x: 0, y: 0.1, z: 0}
+  dropZoneOffset: {x: 0, y: -0.2, z: 0}
 --- !u!95 &326282619756940649
 Animator:
   serializedVersion: 7

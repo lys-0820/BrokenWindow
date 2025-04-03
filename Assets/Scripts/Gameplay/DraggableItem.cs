@@ -25,7 +25,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public PlantGrowthData growthData;
 
     [SerializeField] protected float lerpSpeed = 10f; // Lerp speed for smooth dragging
-    public Vector3 dropZoneOffset = new Vector3(0, 0.1f, 0);
+    public Vector3 dropZoneOffset = new Vector3(0, 0.2f, 0);
 
     protected SpriteRenderer spriteRenderer;
     private Animator animator;

@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 5
   type: 1
   targetCount: 4
-  description: Spend 4 days on this planet.
+  description: Spend 4 days on this stinky rock.
   innerMonologue: Endurance test.
-  isCompleted: 1
+  isCompleted: 0

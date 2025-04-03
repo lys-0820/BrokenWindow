@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c0d08d3f93f99842b8a368c8e12fc66, type: 3}
   m_Name: PottedGrowth 1
   m_EditorClassIdentifier: 
-  babySprite: {fileID: -5419552572755535562, guid: 7f44efa189157294e94b4035895268c1, type: 3}
-  childSprite: {fileID: -4360066785186000735, guid: 9c4549f18866b53488643259d09c6385, type: 3}
-  adultSprite: {fileID: 8734713957740828143, guid: 996b02fd78a06cb44b667cf47d6be8b2, type: 3}
-  adultAnimation: {fileID: 9100000, guid: 4390ed0c09b41d14d8f62bb0ef163a3e, type: 2}
+  babySprite: {fileID: -855298285791758126, guid: 8647183bf5d0f984c8cf5a16405c54fb, type: 3}
+  childSprite: {fileID: 6937817954938267909, guid: 16f74371948b2e6449ff7a59b64e87ce, type: 3}
+  adultSprite: {fileID: 2037120817534264460, guid: e1fde78fc4582604d8d9d06f1fd0c691, type: 3}
+  adultAnimation: {fileID: 9100000, guid: c2eb32bed109eab4cb0fdfbdddd6b9dd, type: 2}
   babyDuration: 1
   childDuration: 1
