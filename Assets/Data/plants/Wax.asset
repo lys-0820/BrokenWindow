@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162124d9111f29545b6737340604fbba, type: 3}
   m_Name: Wax
   m_EditorClassIdentifier: 
-  name: Hoya carnosa
+  plantName: 
   description: Glossy, sweet, and loves to hang around.
   image: {fileID: -2681190143310791750, guid: f559e10362045fa41b23ac1c595690bc, type: 3}
   itemType: 0
   isUnlocked: 1
   plantType: 1
+  growthData: {fileID: 0}
+  scaleFactor: 0.3

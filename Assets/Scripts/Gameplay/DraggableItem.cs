@@ -4,18 +4,31 @@ using System.Collections.Generic;
 
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    public enum PlantMaturity
+    {
+        Baby,
+        Child,
+        Adult
+    }
+
     protected Camera mainCamera;
     protected Vector3 targetPosition;
     protected bool isDragging = false;
     private Vector3 originalPosition;
     private PlantDropZone originalDropZone;
     private PlantDropZone[] allDropZones;
+    private PlantMaturity maturity = PlantMaturity.Baby;
 
     public bool justSpawned = false;
+    private int dayCycles = 0;
     public PlantType plantType = PlantType.Potted;
+    public PlantGrowthData growthData;
 
     [SerializeField] protected float lerpSpeed = 10f; // Lerp speed for smooth dragging
+    public Vector3 dropZoneOffset = new Vector3(0, 0.1f, 0);
+
     protected SpriteRenderer spriteRenderer;
+    private Animator animator;
 
     public void Init(Camera camera)
     {
@@ -32,7 +45,21 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         mainCamera = Camera.main;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+
         ClockController.OnDayPassed += HandleDayPassed;
+
+        // plant sprite is set in draggableItemSpawner for items without growthData
+        if (growthData == null) {
+            return;    
+        }
+
+        if (growthData.babySprite == null) {
+            spriteRenderer.sprite = growthData.adultSprite;
+            maturity = PlantMaturity.Adult;
+        } else {
+            spriteRenderer.sprite = growthData.babySprite;
+        }
     }
 
     void OnDestroy()
@@ -88,7 +115,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 && plantDropZone.plantType == plantType)
         {
             plantDropZone.placedPlant = gameObject;
-            transform.position = dropZoneCollider.transform.position; // Snap to drop zone
+            transform.position = dropZoneCollider.transform.position + dropZoneOffset; // Snap to drop zone
             justSpawned = false;
         }
         else
@@ -170,5 +197,32 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     private void HandleDayPassed() {
         print("DAY PASSED!!!!!!!!!!!!!!!!!");
+        dayCycles++;
+
+        if (growthData == null) {
+            return;
+        }
+
+        // adults don't have growing to do
+        if (maturity == PlantMaturity.Adult) {
+            return;
+        }
+
+        // child to adult
+        else if (maturity == PlantMaturity.Child) {
+            if (dayCycles >= growthData.childDuration) {
+                maturity = PlantMaturity.Adult;
+                spriteRenderer.sprite = growthData.adultSprite;
+                if (growthData.adultAnimation != null) {
+                    animator.runtimeAnimatorController = growthData.adultAnimation;
+                }
+            }
+        // baby to child
+        } else if (maturity == PlantMaturity.Baby) {
+            if (dayCycles >= growthData.babyDuration) {
+                maturity = PlantMaturity.Child;
+                spriteRenderer.sprite = growthData.childSprite;
+            }  
+        }
     } 
 }

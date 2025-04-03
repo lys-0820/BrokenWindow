@@ -6,10 +6,11 @@ public enum ItemType
     Holder,
     Decoration
 }
+
 [CreateAssetMenu(fileName = "PlaceableItemData", menuName = "Scriptable Objects/PlaceableItemData")]
 public class PlaceableItemData : ScriptableObject
 {
-    public string name;
+    public string plantName;
     public string description;
     public Sprite image;
     public ItemType itemType;

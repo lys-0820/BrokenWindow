@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c0d08d3f93f99842b8a368c8e12fc66, type: 3}
+  m_Name: HandPlantGrowthData
+  m_EditorClassIdentifier: 
+  babySprite: {fileID: -5419552572755535562, guid: 7f44efa189157294e94b4035895268c1, type: 3}
+  childSprite: {fileID: -4360066785186000735, guid: 9c4549f18866b53488643259d09c6385, type: 3}
+  adultSprite: {fileID: 8734713957740828143, guid: 996b02fd78a06cb44b667cf47d6be8b2, type: 3}
+  adultAnimation: {fileID: 9100000, guid: 4390ed0c09b41d14d8f62bb0ef163a3e, type: 2}
+  babyDuration: 1
+  childDuration: 1

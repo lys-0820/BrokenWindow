@@ -10,6 +10,10 @@ public class DraggableItemSpawner : MonoBehaviour, IBeginDragHandler, IDragHandl
 
     public Sprite plantSprite;
     public PlantType plantType;
+    public PlantGrowthData growthData;
+    public float scaleFactor = 1f;
+
+    public float minimumWidth = 2f;
 
     private void Start()
     {
@@ -23,6 +27,7 @@ public class DraggableItemSpawner : MonoBehaviour, IBeginDragHandler, IDragHandl
 
         // Spawn the plant in world space
         currentPlant = Instantiate(plantPrefab, mouseWorldPos, Quaternion.identity);
+        currentPlant.transform.localScale = Vector3.one * scaleFactor;
 
         SpriteRenderer spriteRenderer = currentPlant.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = plantSprite;
@@ -33,6 +38,9 @@ public class DraggableItemSpawner : MonoBehaviour, IBeginDragHandler, IDragHandl
         {
             draggable.justSpawned = true;
             draggable.plantType = plantType;
+            if (growthData) {
+                draggable.growthData = growthData;
+            }
             draggable.Init(mainCamera);
             draggable.OnBeginDrag(eventData);
         }

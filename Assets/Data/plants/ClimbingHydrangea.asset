@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162124d9111f29545b6737340604fbba, type: 3}
   m_Name: ClimbingHydrangea
   m_EditorClassIdentifier: 
-  name: Climbing Hydrangea
+  plantName: 
   description: A blooming beauty that climbs like she owns the place.
   image: {fileID: -6154702601891098727, guid: 3c8bfd9bc5ec8a74bb3456e4d86e4b1b, type: 3}
   itemType: 0
   isUnlocked: 1
   plantType: 1
+  growthData: {fileID: 0}
+  scaleFactor: 0.1

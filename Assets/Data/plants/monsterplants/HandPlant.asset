@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 162124d9111f29545b6737340604fbba, type: 3}
-  m_Name: Lily
+  m_Name: HandPlant
   m_EditorClassIdentifier: 
-  plantName: 
-  description: Graceful and calm, with petals like a gentle sigh.
-  image: {fileID: -2078397060694843675, guid: 010e6caa7eea05543b3243490f426786, type: 3}
+  plantName: HandPlant
+  description: will slap yo ass
+  image: {fileID: 8734713957740828143, guid: 996b02fd78a06cb44b667cf47d6be8b2, type: 3}
   itemType: 0
   isUnlocked: 1
   plantType: 0
-  growthData: {fileID: 0}
-  scaleFactor: 0.09
+  growthData: {fileID: 11400000, guid: bceaedcd51b12db4d850542b20d5b439, type: 2}
+  scaleFactor: 0.4
