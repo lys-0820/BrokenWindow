@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: ff27313e08e148e47800f6707d4a73ea
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3870305504089488824
+    second: balcony floor_0
+  - first:
+      213: 2817009835834849013
+    second: balcony floor_1
+  - first:
+      213: -8963600688654574623
+    second: balcony floor_2
+  - first:
+      213: -4111393091540873858
+    second: balcony floor_3
+  - first:
+      213: 4862059601744511049
+    second: balcony floor_4
+  - first:
+      213: 5778259861440943214
+    second: balcony floor_5
+  - first:
+      213: 372927704589366201
+    second: balcony floor_6
+  - first:
+      213: 3360812854837280024
+    second: balcony floor_7
+  - first:
+      213: 311827745053752959
+    second: balcony floor_8
+  - first:
+      213: 8491813268476928271
+    second: balcony floor_9
+  - first:
+      213: 2677057744440270696
+    second: balcony floor_10
+  - first:
+      213: 4377224335567676848
+    second: balcony floor_11
+  - first:
+      213: 6561155176026365177
+    second: balcony floor_12
+  - first:
+      213: -6610708094657976751
+    second: balcony floor_13
+  - first:
+      213: -395338886502464614
+    second: balcony floor_14
+  - first:
+      213: -3482519964890112215
+    second: balcony floor_15
+  - first:
+      213: -597868273462651147
+    second: balcony floor_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: balcony floor_0
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 0
+        width: 2887
+        height: 3110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bd3e77a95616b530800000000000000
+      internalID: 3870305504089488824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: balcony floor_1
+      rect:
+        serializedVersion: 2
+        x: 3616
+        y: 719
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f6b7b14587081720800000000000000
+      internalID: 2817009835834849013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: balcony floor_2
+      rect:
+        serializedVersion: 2
+        x: 3618
+        y: 659
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eb1c443aa4ea9380800000000000000
+      internalID: -8963600688654574623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: balcony floor_3
+      rect:
+        serializedVersion: 2
+        x: 3640
+        y: 713
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7d06be24c561f6c0800000000000000
+      internalID: -4111393091540873858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: balcony floor_4
+      rect:
+        serializedVersion: 2
+        x: 3655
+        y: 644
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94042ce8271897340800000000000000
+      internalID: 4862059601744511049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: balcony floor_5
+      rect:
+        serializedVersion: 2
+        x: 3685
+        y: 653
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e64d51dbab0803050800000000000000
+      internalID: 5778259861440943214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: balcony floor_6
+      rect:
+        serializedVersion: 2
+        x: 3666
+        y: 639
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b373fe75c7ec2500800000000000000
+      internalID: 372927704589366201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: balcony floor_7
+      rect:
+        serializedVersion: 2
+        x: 3672
+        y: 628
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81d74213c7104ae20800000000000000
+      internalID: 3360812854837280024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: balcony floor_8
+      rect:
+        serializedVersion: 2
+        x: 3691
+        y: 593
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7e3a079ea5d35400800000000000000
+      internalID: 311827745053752959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: balcony floor_9
+      rect:
+        serializedVersion: 2
+        x: 3698
+        y: 620
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0124861d2bf8d570800000000000000
+      internalID: 8491813268476928271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: balcony floor_10
+      rect:
+        serializedVersion: 2
+        x: 3695
+        y: 501
+        width: 63
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86f129cb5d1d62520800000000000000
+      internalID: 2677057744440270696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: balcony floor_11
+      rect:
+        serializedVersion: 2
+        x: 3713
+        y: 490
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b5e4b777560fbc30800000000000000
+      internalID: 4377224335567676848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: balcony floor_12
+      rect:
+        serializedVersion: 2
+        x: 3672
+        y: 390
+        width: 48
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fc544fbed7ed0b50800000000000000
+      internalID: 6561155176026365177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: balcony floor_13
+      rect:
+        serializedVersion: 2
+        x: 3710
+        y: 464
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 156ac10530c0244a0800000000000000
+      internalID: -6610708094657976751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: balcony floor_14
+      rect:
+        serializedVersion: 2
+        x: 3719
+        y: 480
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a934f189069738af0800000000000000
+      internalID: -395338886502464614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: balcony floor_15
+      rect:
+        serializedVersion: 2
+        x: 3679
+        y: 442
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92fd4890b8a9bafc0800000000000000
+      internalID: -3482519964890112215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: balcony floor_16
+      rect:
+        serializedVersion: 2
+        x: 3685
+        y: 435
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f658c119f1f3b7f0800000000000000
+      internalID: -597868273462651147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      balcony floor_0: 3870305504089488824
+      balcony floor_1: 2817009835834849013
+      balcony floor_10: 2677057744440270696
+      balcony floor_11: 4377224335567676848
+      balcony floor_12: 6561155176026365177
+      balcony floor_13: -6610708094657976751
+      balcony floor_14: -395338886502464614
+      balcony floor_15: -3482519964890112215
+      balcony floor_16: -597868273462651147
+      balcony floor_2: -8963600688654574623
+      balcony floor_3: -4111393091540873858
+      balcony floor_4: 4862059601744511049
+      balcony floor_5: 5778259861440943214
+      balcony floor_6: 372927704589366201
+      balcony floor_7: 3360812854837280024
+      balcony floor_8: 311827745053752959
+      balcony floor_9: 8491813268476928271
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -110,13 +110,25 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         Collider2D dropZoneCollider = GetNearestDropZone();
         PlantDropZone plantDropZone =
             dropZoneCollider ? dropZoneCollider.GetComponent<PlantDropZone>() : null;
-        if (plantDropZone != null
-                && plantDropZone.placedPlant == null
-                && plantDropZone.plantType == plantType)
+        if (plantDropZone == null) {
+            print("illegal plant drop");
+            HandleIllegalPlantDrop();
+            return;
+        }
+
+        if (plantDropZone.isDiscardZone) {
+            print("discard zoneeee");
+            TodoManager.Instance.NotifyPlantRemove();
+            Destroy(gameObject);
+            return;
+        }
+
+        if (plantDropZone.placedPlant == null && plantDropZone.plantType == plantType)
         {
             plantDropZone.placedPlant = gameObject;
             transform.position = dropZoneCollider.transform.position + dropZoneOffset; // Snap to drop zone
             justSpawned = false;
+            TodoManager.Instance.NotifyPlantPlaced();
         }
         else
         {
@@ -180,7 +192,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private void ShowValidDropZones() {
         foreach (var dropZone in allDropZones)
         {
-            if (dropZone.plantType == plantType)
+            if (dropZone.plantType == plantType || dropZone.isDiscardZone)
             {
                 dropZone.ShowDropZone();
             }

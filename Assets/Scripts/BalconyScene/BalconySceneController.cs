@@ -3,13 +3,22 @@ using UnityEngine.UI;
 public class BalconySceneController : MonoBehaviour
 {
     [SerializeField] private Button BtHome;
+    [SerializeField] private Button BtBalcony;
+    public CameraMover cameraMover;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         BtHome.onClick.AddListener(() =>
         {
-            SceneController.Instance.loadScene("BuildingScene");
+            cameraMover.MoveToCityView();
+            // SceneController.Instance.loadScene("BuildingScene");
         });
+
+        BtBalcony.onClick.AddListener(() =>
+        {
+            cameraMover.MoveToBalconyView();
+        });
+
         TodoUI.Instance.InitUI(TodoManager.Instance.currentPage);
     }
 
