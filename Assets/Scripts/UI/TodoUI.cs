@@ -46,7 +46,8 @@ public class TodoUI : MonoBehaviour
         #region temp
         BtAdd.onClick.AddListener(TodoManager.Instance.NotifyPlantPlaced);
         BtRemove.onClick.AddListener(TodoManager.Instance.NotifyPlantRemove);
-        BtTime.onClick.AddListener(TodoManager.Instance.NotifyTimeJumpUsed);
+        // replaced by delegate OnDayPassed function
+        // BtTime.onClick.AddListener(TodoManager.Instance.NotifyTimeJumpUsed);
         BtPage1.onClick.AddListener(() => TodoManager.Instance.SwitchPage(0));
         BtPage2.onClick.AddListener(() => TodoManager.Instance.SwitchPage(1));
         BtPage3.onClick.AddListener(() => TodoManager.Instance.SwitchPage(2));

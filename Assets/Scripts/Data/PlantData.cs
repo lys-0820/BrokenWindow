@@ -10,4 +10,6 @@ public enum PlantType
 public class PlantData : PlaceableItemData
 {
     public PlantType plantType;
+    public PlantGrowthData growthData;
+    public float scaleFactor = 1f;
 }

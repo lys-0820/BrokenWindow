@@ -69,7 +69,10 @@ public class ShowItems : MonoBehaviour
                 
                 DraggableItemSpawner itemSpawner = itemInstance.GetComponent<DraggableItemSpawner>();
                 itemSpawner.plantSprite = ((PlaceableItemData)(object)data).image;
+
+                itemSpawner.growthData = ((PlantData)(object)data).growthData;
                 itemSpawner.plantType = ((PlantData)(object)data).plantType;
+                itemSpawner.scaleFactor = ((PlantData)(object)data).scaleFactor;
             }
         }
     }

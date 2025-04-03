@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162124d9111f29545b6737340604fbba, type: 3}
   m_Name: Rose
   m_EditorClassIdentifier: 
-  name: Rose
+  plantName: 
   description: A romantic classic with soft petals and secret thorns.
   image: {fileID: 857312311372029537, guid: 2257aa693b7779144b63a57ef26bbe13, type: 3}
   itemType: 0
   isUnlocked: 1
   plantType: 0
+  growthData: {fileID: 0}
+  scaleFactor: 0.1

@@ -46,7 +46,12 @@ public class TodoManager : MonoBehaviour
         Debug.Log(currentPage);
         //TodoUI.Instance.InitUI(currentPage);
 
+        ClockController.OnDayPassed += HandleDayPassed;
+    }
 
+    void OnDestroy()
+    {
+        ClockController.OnDayPassed -= HandleDayPassed;
     }
 
     public void NotifyPlantPlaced()
@@ -62,11 +67,13 @@ public class TodoManager : MonoBehaviour
             CheckTasks(TaskType.Plant, plantCount);
         }
     }
-    public void NotifyTimeJumpUsed()
+
+    public void HandleDayPassed()
     {
         timeJumpCount++;
         CheckTasks(TaskType.TimeJump, timeJumpCount);
     }
+
     public void SwitchPage(int index)
     {
         Debug.Log("switch to page " + index);

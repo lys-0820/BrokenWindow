@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162124d9111f29545b6737340604fbba, type: 3}
   m_Name: Lily
   m_EditorClassIdentifier: 
-  name: Lily
+  plantName: 
   description: Graceful and calm, with petals like a gentle sigh.
   image: {fileID: -2078397060694843675, guid: 010e6caa7eea05543b3243490f426786, type: 3}
   itemType: 0
   isUnlocked: 1
   plantType: 0
+  growthData: {fileID: 0}
+  scaleFactor: 0.09

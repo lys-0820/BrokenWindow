@@ -4,6 +4,7 @@ public class PlantDropZone : MonoBehaviour
 {
     public GameObject placedPlant;
     public PlantType plantType = PlantType.Potted;
+    public bool isDiscardZone = false;
 
     private SpriteRenderer spriteRenderer;
 
