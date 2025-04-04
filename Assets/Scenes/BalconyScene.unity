@@ -1381,6 +1381,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: todoList
       objectReference: {fileID: 0}
+    - target: {fileID: 5546784928831470224, guid: 22f85dd828b5510499d87d98c1338692, type: 3}
+      propertyPath: BtHome
+      value: 
+      objectReference: {fileID: 3715645397197458237}
     - target: {fileID: 8199663881495180436, guid: 22f85dd828b5510499d87d98c1338692, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4019,6 +4023,7 @@ GameObject:
   - component: {fileID: 1694902813606731779}
   - component: {fileID: 3522022766366569201}
   - component: {fileID: 3715645397197458237}
+  - component: {fileID: 8434119359491579912}
   m_Layer: 5
   m_Name: BtHome
   m_TagString: Untagged
@@ -4045,6 +4050,28 @@ RectTransform:
   m_AnchoredPosition: {x: -2414, y: -117}
   m_SizeDelta: {x: 118, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &8434119359491579912
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6457659323701372414}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b36fec85c08c22489fb37fe74dd7efa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

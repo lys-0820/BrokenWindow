@@ -104,12 +104,15 @@ public class TodoManager : MonoBehaviour
         if(finishedTaskCount>=currentPage.todoList.Count)
         {
             StartCoroutine(FinishOnePage());
+            TodoUI.Instance.PlayBtHomeAnim();
         }
     }
     private IEnumerator FinishOnePage()
     {
-        if(currentPhase < todoPageList.Count - 1)
+        Debug.Log("current phase is:" + currentPhase);
+        if (currentPhase < todoPageList.Count - 1)
         {
+            //not finished all the task
             yield return StartCoroutine(TodoUI.Instance.MakeStamp());
             TodoUI.Instance.UnlockNewPage();
             currentPage = todoPageList[++currentPhase];
@@ -122,11 +125,12 @@ public class TodoManager : MonoBehaviour
         }
         else
         {
+            //finished all the task
             StartCoroutine(TodoUI.Instance.MakeStamp());
-            
+            currentPhase++;
             finishedTaskCount = 0;
         }
-        
+        Debug.Log("current phase is:" + currentPhase);
 
     }
     public TodoPageData GetCurrentPage()

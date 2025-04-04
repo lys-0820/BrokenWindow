@@ -31,6 +31,8 @@ public class TodoUI : MonoBehaviour
     public GameObject stampObj;
 
     public AudioSource flipAudioSource;
+
+    public Button BtHome;
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -45,6 +47,7 @@ public class TodoUI : MonoBehaviour
         BtPage1.onClick.AddListener(() => StartCoroutine(TodoManager.Instance.SwitchPage(0)));
         BtPage2.onClick.AddListener(() => StartCoroutine(TodoManager.Instance.SwitchPage(1)));
         BtPage3.onClick.AddListener(() => StartCoroutine(TodoManager.Instance.SwitchPage(2)));
+        BtHome.onClick.AddListener(() => StopBtHomeAnim());
         BtClose.onClick.AddListener(HideTodoPanel);
         transform.gameObject.SetActive(false);
     }
@@ -185,5 +188,13 @@ public class TodoUI : MonoBehaviour
     public void PlayFlipSound()
     {
         flipAudioSource.Play();
+    }
+    public void PlayBtHomeAnim()
+    {
+        BtHome.gameObject.GetComponent<Animator>().SetBool("IsNewPhase", true);
+    }
+    public void StopBtHomeAnim()
+    {
+        BtHome.gameObject.GetComponent<Animator>().SetBool("IsNewPhase", false);
     }
 }
