@@ -660,6 +660,7 @@ MonoBehaviour:
   panelPage3: {fileID: 1074358137897465109}
   stampObj: {fileID: 6998428842598126650}
   flipAudioSource: {fileID: 6598734789511532296}
+  BtHome: {fileID: 0}
 --- !u!82 &5184329948077825463
 AudioSource:
   m_ObjectHideFlags: 0

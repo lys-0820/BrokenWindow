@@ -19,11 +19,13 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private PlantDropZone[] allDropZones;
     private PlantMaturity maturity = PlantMaturity.Baby;
     private Vector3 originalScale;
+    private PlantSoundManager soundManager;
 
     public bool justSpawned = false;
     private int dayCycles = 0;
     public PlantType plantType = PlantType.Potted;
     public PlantGrowthData growthData;
+    public GameObject particleEffectPrefab;
 
     [SerializeField] protected float lerpSpeed = 10f; // Lerp speed for smooth dragging
     public Vector3 dropZoneOffset = new Vector3(0, 0.2f, 0);
@@ -40,6 +42,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private void Awake()
     {
         allDropZones = FindObjectsByType<PlantDropZone>(FindObjectsSortMode.None);
+        soundManager = FindFirstObjectByType<PlantSoundManager>();
     }
 
     protected virtual void Start()
@@ -132,6 +135,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             print("discard zoneeee");
             TodoManager.Instance.NotifyPlantRemove();
+            soundManager.PlayDiscardedClip();
             Destroy(gameObject);
             return;
         }
@@ -142,6 +146,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             transform.position = dropZoneCollider.transform.position + dropZoneOffset; // Snap to drop zone
             justSpawned = false;
             TodoManager.Instance.NotifyPlantPlaced();
+            soundManager.PlayPlacedClip();
+            TriggerParticleEffect(transform.position);
         }
         else
         {
@@ -285,6 +291,14 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 spriteRenderer.color = color;
                 // dragVisualOffset = Vector3.zero;
             }
+        }
+    }
+
+    private void TriggerParticleEffect(Vector3 position)
+    {
+        if (particleEffectPrefab != null)
+        {
+            Instantiate(particleEffectPrefab, position, Quaternion.identity);
         }
     }
 }

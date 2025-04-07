@@ -152,6 +152,7 @@ MonoBehaviour:
   justSpawned: 0
   plantType: 0
   growthData: {fileID: 0}
+  particleEffectPrefab: {fileID: 2313828058763667363, guid: b31c902b7f40f2c45aa3326dda292a50, type: 3}
   lerpSpeed: 10
   dropZoneOffset: {x: 0, y: -0.2, z: 0}
 --- !u!95 &326282619756940649
