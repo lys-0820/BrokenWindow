@@ -18,6 +18,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private PlantDropZone originalDropZone;
     private PlantDropZone[] allDropZones;
     private PlantMaturity maturity = PlantMaturity.Baby;
+    private Vector3 originalScale;
 
     public bool justSpawned = false;
     private int dayCycles = 0;
@@ -79,6 +80,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         originalPosition = transform.position;
         isDragging = true;
+        SetDraggingVisuals(true);
         ShowValidDropZones();
 
         // Store the original drop zone before dragging
@@ -104,6 +106,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public virtual void OnEndDrag(PointerEventData eventData)
     {
         isDragging = false;
+        SetDraggingVisuals(false);
         HideAllDropZones();
 
         // Check for the nearest drop zone
@@ -237,4 +240,31 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             }  
         }
     } 
+
+    private void SetDraggingVisuals(bool isDragging)
+    {
+        if (isDragging)
+        {
+            originalScale = transform.localScale;
+            transform.localScale *= 0.9f;
+            if (spriteRenderer != null)
+            {
+                var color = spriteRenderer.color;
+                color.a = 0.6f;
+                spriteRenderer.color = color;
+                // dragVisualOffset = new Vector3(0f, -spriteRenderer.bounds.extents.y / 2, 0f);
+            }
+        }
+        else
+        {
+            transform.localScale = originalScale;
+            if (spriteRenderer != null)
+            {
+                var color = spriteRenderer.color;
+                color.a = 1f;
+                spriteRenderer.color = color;
+                // dragVisualOffset = Vector3.zero;
+            }
+        }
+    }
 }
