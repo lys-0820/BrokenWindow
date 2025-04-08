@@ -25,6 +25,6 @@ public class DayCounterController : MonoBehaviour
 
     private void UpdateDayText()
     {
-        dayText.text = currentDay.ToString();
+        dayText.text = $"{currentDay:D3}";
     }
 }
