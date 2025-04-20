@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -5,8 +6,8 @@ using UnityEngine.EventSystems;
 public class ClockController : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [Header("Clock Hands")]
-    public Transform hourHand;  
-    public Transform minuteHand;  
+    public Transform hourHand;
+    public Transform minuteHand;
 
     private bool isDragging = false;
     private Vector3 lastMousePosition;
@@ -15,18 +16,17 @@ public class ClockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     private float totalHourRotation = 0f; // Accumulates for day passing
     private bool IsDaytime = true;
-    
+
     [Header("Clock Settings")]
     public float rotationSpeed = 10f;
 
     [Header("Animation")]
     public Animator clockAnimator; // Reference to Animator component
 
-    public delegate void HalfDayPassed();
-    public static event HalfDayPassed OnHalfDayPassed;
-
-    public delegate void DayPassed();
-    public static event DayPassed OnDayPassed;
+    public static event Action OnHalfDayPassed;
+    public static event Action OnDayPassed;
+    public static event Action OnClockTickleStart;
+    public static event Action OnClockTickleEnd;
 
     // public AudioClip tickleSound;
     private AudioSource audioSource;
@@ -45,13 +45,17 @@ public class ClockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
         isDragging = true;
         lastMousePosition = GetMouseWorldPosition();
+        OnClockTickleStart?.Invoke();
 
         // Start animation
-        if (clockAnimator != null) {
+        if (clockAnimator != null)
+        {
             clockAnimator.SetBool("tickle", true);
             print("tickling true");
             audioSource.Play();
-        } else {
+        }
+        else
+        {
             print("NO ANIMATOR!!!!!!!!!!!!");
         }
     }
@@ -70,7 +74,8 @@ public class ClockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             if (minuteHand != null)
                 minuteHand.RotateAround(clockCenter, Vector3.forward, scaledRotation);
 
-            if (hourHand != null) {
+            if (hourHand != null)
+            {
                 float hourRotation = scaledRotation / 12f;
                 hourHand.RotateAround(clockCenter, Vector3.forward, hourRotation);
                 totalHourRotation += Mathf.Abs(hourRotation);
@@ -83,7 +88,8 @@ public class ClockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                     IsDaytime = !IsDaytime; // Alternate between day and night
 
                     // If it's day again notify a full day has passed.
-                    if (IsDaytime) {
+                    if (IsDaytime)
+                    {
                         OnDayPassed?.Invoke();
                     }
                 }
@@ -96,9 +102,11 @@ public class ClockController : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     public void OnEndDrag(PointerEventData eventData)
     {
         isDragging = false;
+        OnClockTickleEnd?.Invoke();
 
         // Stop animation
-        if (clockAnimator != null) {
+        if (clockAnimator != null)
+        {
             print("tickling false");
             clockAnimator.SetBool("tickle", false);
             audioSource.Stop();

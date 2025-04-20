@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -650773483953474756}
   - component: {fileID: 326282619756940649}
   - component: {fileID: 5937133474537768211}
+  - component: {fileID: 7362040614114781487}
   m_Layer: 0
   m_Name: Plant
   m_TagString: Untagged
@@ -152,6 +153,7 @@ MonoBehaviour:
   justSpawned: 0
   plantType: 0
   growthData: {fileID: 0}
+  particleEffectPrefab: {fileID: 2313828058763667363, guid: b31c902b7f40f2c45aa3326dda292a50, type: 3}
   lerpSpeed: 10
   dropZoneOffset: {x: 0, y: -0.2, z: 0}
 --- !u!95 &326282619756940649
@@ -188,3 +190,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36493ff7d3930b54aab880ed6992a2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7362040614114781487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331379568377246162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b0342ba7943e34894825733e28a82d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDistance: 0.2
+  shakeAngle: 10
+  shakeDuration: 0.1

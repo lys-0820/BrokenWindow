@@ -18,11 +18,14 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private PlantDropZone originalDropZone;
     private PlantDropZone[] allDropZones;
     private PlantMaturity maturity = PlantMaturity.Baby;
+    private Vector3 originalScale;
+    private PlantSoundManager soundManager;
 
     public bool justSpawned = false;
     private int dayCycles = 0;
     public PlantType plantType = PlantType.Potted;
     public PlantGrowthData growthData;
+    public GameObject particleEffectPrefab;
 
     [SerializeField] protected float lerpSpeed = 10f; // Lerp speed for smooth dragging
     public Vector3 dropZoneOffset = new Vector3(0, 0.2f, 0);
@@ -39,6 +42,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private void Awake()
     {
         allDropZones = FindObjectsByType<PlantDropZone>(FindObjectsSortMode.None);
+        soundManager = FindFirstObjectByType<PlantSoundManager>();
     }
 
     protected virtual void Start()
@@ -50,14 +54,18 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         ClockController.OnDayPassed += HandleDayPassed;
 
         // plant sprite is set in draggableItemSpawner for items without growthData
-        if (growthData == null) {
-            return;    
+        if (growthData == null)
+        {
+            return;
         }
 
-        if (growthData.babySprite == null) {
+        if (growthData.babySprite == null)
+        {
             spriteRenderer.sprite = growthData.adultSprite;
             maturity = PlantMaturity.Adult;
-        } else {
+        }
+        else
+        {
             spriteRenderer.sprite = growthData.babySprite;
         }
     }
@@ -71,7 +79,10 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (isDragging)
         {
-            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * lerpSpeed);
+            transform.position = Vector3.Lerp(
+                transform.position,
+                targetPosition,
+                Time.deltaTime * lerpSpeed);
         }
     }
 
@@ -79,6 +90,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         originalPosition = transform.position;
         isDragging = true;
+        SetDraggingVisuals(true);
         ShowValidDropZones();
 
         // Store the original drop zone before dragging
@@ -104,21 +116,26 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public virtual void OnEndDrag(PointerEventData eventData)
     {
         isDragging = false;
+        SetDraggingVisuals(false);
         HideAllDropZones();
 
         // Check for the nearest drop zone
         Collider2D dropZoneCollider = GetNearestDropZone();
-        PlantDropZone plantDropZone =
-            dropZoneCollider ? dropZoneCollider.GetComponent<PlantDropZone>() : null;
-        if (plantDropZone == null) {
+        PlantDropZone plantDropZone = dropZoneCollider
+            ? dropZoneCollider.GetComponent<PlantDropZone>()
+            : null;
+        if (plantDropZone == null)
+        {
             print("illegal plant drop");
             HandleIllegalPlantDrop();
             return;
         }
 
-        if (plantDropZone.isDiscardZone) {
+        if (plantDropZone.isDiscardZone)
+        {
             print("discard zoneeee");
             TodoManager.Instance.NotifyPlantRemove();
+            soundManager.PlayDiscardedClip();
             Destroy(gameObject);
             return;
         }
@@ -129,6 +146,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             transform.position = dropZoneCollider.transform.position + dropZoneOffset; // Snap to drop zone
             justSpawned = false;
             TodoManager.Instance.NotifyPlantPlaced();
+            soundManager.PlayPlacedClip();
+            TriggerParticleEffect(transform.position);
         }
         else
         {
@@ -189,7 +208,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
     }
 
-    private void ShowValidDropZones() {
+    private void ShowValidDropZones()
+    {
         foreach (var dropZone in allDropZones)
         {
             if (dropZone.plantType == plantType || dropZone.isDiscardZone)
@@ -207,34 +227,78 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
     }
 
-    private void HandleDayPassed() {
+    private void HandleDayPassed()
+    {
         print("DAY PASSED!!!!!!!!!!!!!!!!!");
         dayCycles++;
 
-        if (growthData == null) {
+        if (growthData == null)
+        {
             return;
         }
 
         // adults don't have growing to do
-        if (maturity == PlantMaturity.Adult) {
+        if (maturity == PlantMaturity.Adult)
+        {
             return;
         }
 
         // child to adult
-        else if (maturity == PlantMaturity.Child) {
-            if (dayCycles >= growthData.childDuration) {
+        else if (maturity == PlantMaturity.Child)
+        {
+            if (dayCycles >= growthData.childDuration)
+            {
                 maturity = PlantMaturity.Adult;
                 spriteRenderer.sprite = growthData.adultSprite;
-                if (growthData.adultAnimation != null) {
+                if (growthData.adultAnimation != null)
+                {
                     animator.runtimeAnimatorController = growthData.adultAnimation;
                 }
             }
-        // baby to child
-        } else if (maturity == PlantMaturity.Baby) {
-            if (dayCycles >= growthData.babyDuration) {
+            // baby to child
+        }
+        else if (maturity == PlantMaturity.Baby)
+        {
+            if (dayCycles >= growthData.babyDuration)
+            {
                 maturity = PlantMaturity.Child;
                 spriteRenderer.sprite = growthData.childSprite;
-            }  
+            }
         }
-    } 
+    }
+
+    private void SetDraggingVisuals(bool isDragging)
+    {
+        if (isDragging)
+        {
+            originalScale = transform.localScale;
+            transform.localScale *= 0.9f;
+            if (spriteRenderer != null)
+            {
+                var color = spriteRenderer.color;
+                color.a = 0.6f;
+                spriteRenderer.color = color;
+                // dragVisualOffset = new Vector3(0f, -spriteRenderer.bounds.extents.y / 2, 0f);
+            }
+        }
+        else
+        {
+            transform.localScale = originalScale;
+            if (spriteRenderer != null)
+            {
+                var color = spriteRenderer.color;
+                color.a = 1f;
+                spriteRenderer.color = color;
+                // dragVisualOffset = Vector3.zero;
+            }
+        }
+    }
+
+    private void TriggerParticleEffect(Vector3 position)
+    {
+        if (particleEffectPrefab != null)
+        {
+            Instantiate(particleEffectPrefab, position, Quaternion.identity);
+        }
+    }
 }
