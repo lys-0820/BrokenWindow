@@ -104,8 +104,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Use the Time Warp Egg wqwwqfeqfewafe
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 136e0d9070e421e44882c9f60c194cc8, type: 2}
-  m_sharedMaterial: {fileID: -8573375246528393772, guid: 136e0d9070e421e44882c9f60c194cc8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9eb45ef6a5fb578489c96ee7d1c8d092, type: 2}
+  m_sharedMaterial: {fileID: 8123170484204807525, guid: 9eb45ef6a5fb578489c96ee7d1c8d092, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -240,8 +240,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Use theTime Warp aaaaaaaaaaaaa
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 136e0d9070e421e44882c9f60c194cc8, type: 2}
-  m_sharedMaterial: {fileID: -8573375246528393772, guid: 136e0d9070e421e44882c9f60c194cc8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9eb45ef6a5fb578489c96ee7d1c8d092, type: 2}
+  m_sharedMaterial: {fileID: 8123170484204807525, guid: 9eb45ef6a5fb578489c96ee7d1c8d092, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
