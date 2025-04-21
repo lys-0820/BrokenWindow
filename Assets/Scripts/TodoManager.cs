@@ -13,6 +13,8 @@ public class TodoManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            currentPage = todoPageList[0];
+            Debug.Log(currentPage);
         }
         else
         {
@@ -29,7 +31,7 @@ public class TodoManager : MonoBehaviour
     private int currentPhase;
     private int finishedTaskCount;
 
-
+    
     void Start()
     {
         plantCount = 0;
@@ -43,8 +45,7 @@ public class TodoManager : MonoBehaviour
                 task.isCompleted = false;
             }
         }
-        currentPage = todoPageList[0];
-        Debug.Log(currentPage);
+
         //TodoUI.Instance.InitUI(currentPage);
 
         ClockController.OnDayPassed += HandleDayPassed;
